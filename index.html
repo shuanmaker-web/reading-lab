@@ -236,6 +236,14 @@ body{height:100dvh;touch-action:manipulation}
 .toast{position:fixed;left:50%;bottom:28px;transform:translateX(-50%);background:#111;color:var(--y);padding:10px 22px;border-radius:999px;font-weight:700;z-index:99;opacity:0;transition:opacity .2s;pointer-events:none}
 .toast.on{opacity:1}
 @media (max-width:800px){.prbar{padding-left:14px;padding-right:14px}}
+.segbar,.skills .segtools{display:flex;gap:8px;align-items:center}
+.segbar{padding:6px 28px 14px}.segbar .sp{flex:1}
+.seg{font-weight:800;font-size:15px;background:var(--k,#111);color:var(--y,#fde047);border-radius:999px;padding:5px 14px;white-space:nowrap}
+.seg small{font-weight:600;font-size:12px;opacity:.75;margin-left:8px}
+.skills .segtools{margin-left:auto}
+.segbar button,.segtools button{border:2px solid #111;background:#fff;color:#111;border-radius:999px;padding:5px 14px;font-weight:700;font-size:14px}
+.segbar button:disabled,.segtools button:disabled{opacity:.35}
+@media (max-width:800px){.segbar{padding-left:14px;padding-right:14px}.seg small{display:none}}
 </style>
 </head>
 <body>
@@ -245,10 +253,6 @@ body{height:100dvh;touch-action:manipulation}
   <button onclick="openPrac()">混合練習</button>
   <span id="topReader" style="display:none;gap:8px;align-items:center;display:none">
     字級 <button onclick="fs(-2)">A−</button><button onclick="fs(2)">A+</button>
-    <button id="btnAns" onclick="toggleAns()">顯示答案:關</button>
-    <button id="btnCmp" onclick="toggleCmp()">標準答案:關</button>
-    <button onclick="clearAnn()">清除標記</button>
-    <button onclick="toggleDock()">題目區 ⇅</button>
   </span>
   <span class="sp"></span>
   <div class="menuwrap"><button onclick="toggleMenu(event)">設定</button>
@@ -263,6 +267,7 @@ body{height:100dvh;touch-action:manipulation}
   <div class="prbar" id="prbar"></div>
   <div class="tipbar" id="tipbar">點色塊再點句子(或把色塊拖到句子上)。再點一次色塊取消。點句子上的小標籤可移除。</div>
   <div class="panes" id="panes"></div>
+  <div class="segbar" id="ansbar"><span class="seg">② 作答<small>選答案、填空格</small></span><span class="sp"></span><button id="btnAns" onclick="toggleAns()">顯示答案:關</button><button onclick="clearResp()">清除作答</button><button onclick="toggleDock()">收合 / 展開 ⇅</button></div>
   <div class="dock" id="dock"></div>
 </div>
 
@@ -525,7 +530,7 @@ function openReader(ids){
   $('#panes').innerHTML=open.map(id=>{const p=P(id);return `<div class="pane"><div class="ph"><span class="tag">${esc(p.year)}</span><span class="tag">${esc(p.type)}</span>${esc(p.title)}</div>${/^gsat-\d+/.test(p.id)?`<div class="pdesc">出處:大考中心 ${esc(p.year)} 學年度學科能力測驗(ceec.edu.tw)</div>`:''}${p.desc?`<div class="pdesc">${esc(p.desc)}</div>`:''}<div class="body" id="b_${id}">${buildPassage(p)||emptyHtml(p)}</div></div>`}).join('');
   $('#dock').innerHTML='<div class="grip" id="grip" title="上下拖曳調整高度"><i></i></div>'+open.map(id=>`<div class="dcol" id="d_${id}"></div>`).join('');bindGrip();
   document.documentElement.style.setProperty('--fs',ui.fs+'px');
-  $('#skills').innerHTML=SKILLS.map(s=>`<div class="blk" id="k_${s.id}" draggable="${!s.tool}" style="background:${s.p}" data-k="${s.id}" title="${pr&&!pr.checked?'':esc(s.cue)}">${s.name}</div>`).join('');
+  $('#skills').innerHTML='<span class="seg">① 技巧練習<small>標記句子的關係</small></span>'+SKILLS.map(s=>`<div class="blk" id="k_${s.id}" draggable="${!s.tool}" style="background:${s.p}" data-k="${s.id}" title="${pr&&!pr.checked?'':esc(s.cue)}">${s.name}</div>`).join('')+'<span class="segtools"><button id="btnCmp" onclick="toggleCmp()">對照標準:關</button><button onclick="clearAnn()">清除標記</button></span>';
   bindSkills();bindPassages();
   open.forEach(id=>{paintAnn(id);renderDock(id)});
   applyDock();applyMode();open.forEach(paintAnn);$('#btnAns').textContent='顯示答案:'+(ui.ans?'開':'關');
@@ -593,12 +598,13 @@ function scoreTip(){
 }
 function applyMode(){
   document.body.classList.toggle('teach',ui.mode==='t');
-  $('#btnCmp').textContent='標準答案:'+(ui.cmp?'開':'關');
+  $('#btnCmp').textContent='對照標準:'+(ui.cmp?'開':'關');
   $('#btnCmp').disabled=ui.mode==='t';$('#btnCmp').style.opacity=ui.mode==='t'?.4:1;
   if(!(ui.mode==='s'&&ui.cmp))$('#tipbar').innerHTML=ui.mode==='t'?'老師模式:現在標的是「標準標記」,學生模式看不到,按「對照標準」才會比對。':'點色塊再點句子(或把色塊拖到句子上)。再點一次色塊取消。點句子上的小標籤可移除。';
 }
 function toggleCmp(){if(ui.mode==='t')return;ui.cmp=!ui.cmp;sv(K.u,ui);applyMode();open.forEach(paintAnn)}
-function clearAnn(){if(!confirm('清除目前開啟文章的標記與作答?(標準答案對照會一併關閉)'))return;open.forEach(id=>{delete ann[id];delete resp[id]});ui.cmp=false;sv(K.u,ui);applyMode();open.forEach(id=>{paintAnn(id);renderDock(id)});saveAnn();sv(K.r,resp);toast('已清除標記與作答')}
+function clearAnn(){if(!confirm('清除目前文章上的技巧標記?(作答不會動)'))return;open.forEach(id=>{delete ann[id]});ui.cmp=false;sv(K.u,ui);applyMode();open.forEach(paintAnn);saveAnn();toast('已清除技巧標記')}
+function clearResp(){if(!confirm('清除目前文章的作答?(技巧標記不會動)'))return;open.forEach(id=>{delete resp[id]});ui.ans=false;sv(K.u,ui);$('#btnAns').textContent='顯示答案:關';open.forEach(id=>{renderDock(id);paintAnn(id)});sv(K.r,resp);toast('已清除作答')}
 function fs(d){ui.fs=Math.max(14,Math.min(48,ui.fs+d));sv(K.u,ui);document.documentElement.style.setProperty('--fs',ui.fs+'px')}
 function toggleAns(){ui.ans=!ui.ans;sv(K.u,ui);$('#btnAns').textContent='顯示答案:'+(ui.ans?'開':'關');open.forEach(renderDock)}
 function toggleDock(){ui.min=!ui.min;sv(K.u,ui);applyDock()}
@@ -611,7 +617,7 @@ function bindGrip(){
     g.onpointerup=g.onpointercancel=()=>{g.onpointermove=null;sv(K.u,ui)}};
   g.ondblclick=()=>{delete ui.dh;$('#dock').style.removeProperty('--dh');sv(K.u,ui)};
 }
-function applyDock(){$('#dock').classList.toggle('min',!!ui.min);$('#dock').style.display=open.some(id=>P(id).qs.length)?'flex':'none'}
+function applyDock(){$('#ansbar').style.display=open.some(id=>P(id).qs.length)?'flex':'none';$('#dock').classList.toggle('min',!!ui.min);$('#dock').style.display=open.some(id=>P(id).qs.length)?'flex':'none'}
 
 /* ---------- questions dock ---------- */
 function getOpts(p,x){return x.opts.length?x.opts:(p.bank||[])}
