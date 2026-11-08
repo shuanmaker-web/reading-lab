@@ -252,7 +252,7 @@ body{height:100dvh;touch-action:manipulation}
   </span>
   <span class="sp"></span>
   <div class="menuwrap"><button onclick="toggleMenu(event)">設定</button>
-    <div class="menu" id="menu"><button onclick="closeMenu();openBulk()">整份試卷貼上</button><button onclick="closeMenu();openEditor()">新增文章</button><button onclick="closeMenu();exportData()">備份</button><button onclick="closeMenu();document.getElementById('imp').click()">匯入</button></div></div>
+    <div class="menu" id="menu"><button onclick="closeMenu();openBulk()">整份試卷貼上</button><button onclick="closeMenu();openEditor()">新增文章</button><button onclick="closeMenu();loadRefs(true)">載入標準技巧標記</button><button onclick="closeMenu();exportData()">備份</button><button onclick="closeMenu();document.getElementById('imp').click()">匯入</button></div></div>
   <input id="imp" type="file" accept=".json" style="display:none" onchange="importData(this)">
 </div>
 
@@ -623,6 +623,19 @@ function paintBlanks(pid){
     if(c&&ui.ans&&x&&x.ans)b.className='blank '+(c===x.ans?'ok':'bad')+(n===curQ[pid]?' cur':'');
   });
 }
+/* ---------- auto-load standard tags (refs.json, tags only, no passage text) ---------- */
+async function loadRefs(force){
+  if(!location.protocol.startsWith('http')){if(force)toast('要從網址開啟才能自動載入');return}
+  try{
+    const j=await (await fetch('refs.json',{cache:'no-cache'})).json();
+    const cur=+localStorage.getItem('rt.refv')||0;
+    if(!force&&!(j.version>cur))return;
+    const n=Object.keys(j.ref||{}).length;
+    Object.assign(ref,j.ref||{});sv(K.f,ref);localStorage.setItem('rt.refv',String(j.version));
+    if($('#reader').style.display==='flex')open.forEach(paintAnn);else renderLib();
+    toast('已載入標準技巧標記 '+n+' 篇');
+  }catch(e){if(force)toast('載入失敗,請確認網路')}
+}
 /* ---------- mixed practice ---------- */
 const accOf=id=>{const x=prac[id];if(!x)return null;const t=x.ok+x.extra+x.miss;return t?Math.round(x.ok/t*100):0};
 const pracMeta=id=>prac[id]?` · 練習 ${prac[id].n} 次 · 上次 ${accOf(id)}%`:'';
@@ -674,7 +687,7 @@ document.addEventListener('click',e=>{if(!e.target.closest('.menuwrap'))closeMen
 document.addEventListener('keydown',e=>{if(e.key==='Escape'){if(act)setAct(act);closeM()}});
 $('#modal').addEventListener('click',e=>{if(e.target.id==='modal')closeM()});
 if('serviceWorker' in navigator&&location.protocol.startsWith('http'))navigator.serviceWorker.register('sw.js').catch(()=>{});
-renderLib();
+renderLib();loadRefs(false);
 </script>
 </body>
 </html>
