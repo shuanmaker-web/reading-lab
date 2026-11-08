@@ -306,6 +306,23 @@ const $=s=>document.querySelector(s);
 const toast=m=>{const t=$('#toast');t.textContent=m;t.classList.add('on');clearTimeout(toast.h);toast.h=setTimeout(()=>t.classList.remove('on'),1900)};
 const esc=s=>String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
 
+/* ---------- drop built-in demo cards once the real passages are pasted ---------- */
+function pruneSeeds(){
+  const cov={};
+  data.forEach(p=>{const m=p.id.match(/^exam-(\d+)-/);if(m&&p.text.trim())p.qs.forEach(q=>(cov[m[1]]??=new Set()).add(q.n))});
+  const drop=data.filter(p=>{const m=p.id.match(/^gsat-(\d+)-/);return m&&!p.text.trim()&&p.qs.length&&cov[m[1]]&&p.qs.every(q=>cov[m[1]].has(q.n))});
+  /* carry the teaching notes from the demo cards into the real cards before dropping them */
+  data.filter(p=>/^exam-\d+-/.test(p.id)&&p.text.trim()).forEach(p=>{
+    const y=p.id.split('-')[1],m=p.id.match(/^exam-\d+-(\d+)-(\d+)$/),ss=drop.filter(d=>d.id.startsWith('gsat-'+y+'-'));if(!ss.length)return;
+    p.qs.forEach(q=>{if(q.note||q.skill||q.label||q.ansText)return;
+      for(const sp of ss){const sq=sp.qs.find(x=>x.n===q.n);if(sq&&(sq.note||sq.skill||sq.label||sq.ansText)){q.label=sq.label;q.skill=sq.skill;q.note=sq.note;q.ansText=sq.ansText;if(!q.ans&&sq.ans)q.ans=sq.ans;break}}});
+    if(m){const ov=ss.filter(sp=>sp.qs.length&&sp.qs.every(x=>x.n>=+m[1]&&x.n<=+m[2]));
+      if(ov.length===1){if(!p.desc&&ov[0].desc)p.desc=ov[0].desc;if(!p.title.includes('・'))p.title+='・'+ov[0].title.replace(/[(（].*$/,'')}}
+  });
+  drop.forEach(p=>{delete ann[p.id];delete ref[p.id];delete resp[p.id];delete prac[p.id]});
+  if(drop.length){const ids=new Set(drop.map(p=>p.id));data=data.filter(p=>!ids.has(p.id));selIds=selIds.filter(x=>!ids.has(x))}
+  return drop.length;
+}
 /* ---------- library ---------- */
 function showLib(){pr=null;pracBar();$('#reader').style.display='none';$('#lib').style.display='block';$('#topReader').style.display='none';renderLib()}
 function renderLib(){
@@ -394,7 +411,7 @@ function importData(el){const f=el.files[0];if(!f)return;f.text().then(t=>{try{
   j.data.forEach(p=>{const r=p.ref;delete p.ref;if(!p.id)p.id='p'+Date.now()+Math.random().toString(36).slice(2,6);
     p.bank=p.bank||[];p.qs=p.qs||[];const i=data.findIndex(x=>x.id===p.id);if(i>=0)data[i]=p;else data.push(p);if(r)ref[p.id]=r});
   Object.assign(ann,j.ann||{});Object.assign(ref,j.ref||{});Object.assign(resp,j.resp||{});Object.assign(prac,j.prac||{});
-  sv(K.p,prac);sv(K.d,data);saveAnn();sv(K.r,resp);showLib()}catch(e){alert('檔案格式不正確')}});el.value=''}
+  const nd=pruneSeeds();sv(K.p,prac);sv(K.d,data);saveAnn();sv(K.r,resp);sv(K.f,ref);showLib();if(nd)toast('已整理掉 '+nd+' 張重複的舊示範卡');loadRefs(true,true)}catch(e){alert('檔案格式不正確')}});el.value=''}
 
 
 /* ---------- bulk exam paste ---------- */
@@ -624,7 +641,7 @@ function paintBlanks(pid){
   });
 }
 /* ---------- auto-load standard tags (refs.json, tags only, no passage text) ---------- */
-async function loadRefs(force){
+async function loadRefs(force,quiet){
   if(!location.protocol.startsWith('http')){if(force)toast('要從網址開啟才能自動載入');return}
   try{
     const j=await (await fetch('refs.json',{cache:'no-cache'})).json();
@@ -633,7 +650,7 @@ async function loadRefs(force){
     const n=Object.keys(j.ref||{}).length;
     Object.assign(ref,j.ref||{});sv(K.f,ref);localStorage.setItem('rt.refv',String(j.version));
     if($('#reader').style.display==='flex')open.forEach(paintAnn);else renderLib();
-    toast('已載入標準技巧標記 '+n+' 篇');
+    if(!quiet)toast('已載入標準技巧標記 '+n+' 篇');
   }catch(e){if(force)toast('載入失敗,請確認網路')}
 }
 /* ---------- mixed practice ---------- */
@@ -687,6 +704,7 @@ document.addEventListener('click',e=>{if(!e.target.closest('.menuwrap'))closeMen
 document.addEventListener('keydown',e=>{if(e.key==='Escape'){if(act)setAct(act);closeM()}});
 $('#modal').addEventListener('click',e=>{if(e.target.id==='modal')closeM()});
 if('serviceWorker' in navigator&&location.protocol.startsWith('http'))navigator.serviceWorker.register('sw.js').catch(()=>{});
+if(pruneSeeds()){sv(K.d,data);saveAnn();sv(K.r,resp);sv(K.p,prac)}
 renderLib();loadRefs(false);
 </script>
 </body>
