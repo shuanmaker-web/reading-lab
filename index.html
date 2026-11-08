@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<meta name="theme-color" content="#fff48f">
+<meta name="theme-color" content="#efeee7">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-title" content="Reading Lab">
@@ -331,14 +331,133 @@ details.ab .tq{font-weight:600;font-size:16px;color:#111b;margin:0 0 10px}
 .ttip{background:#fef9c3;border-radius:14px;padding:8px 14px;font-size:16px;line-height:1.6;margin:8px 0}
 @media (max-width:800px){#demo{padding-left:14px;padding-right:14px}.rdir{margin-left:0}}
 @media print{#demo{display:none!important}}
+
+/* ===== v16: Heron-inspired editorial theme (cream paper, hairlines, mono labels, orange accent) ===== */
+:root{--y:#ff4a1c;--cream:#f7f6f0;--k:#111;--r:0px;--paper:#efeee7;--hov:#e6e4d8;
+ --mono:ui-monospace,"SF Mono","JetBrains Mono",Menlo,Consolas,monospace;
+ --sans:"Inter Tight","Helvetica Neue",Helvetica,Arial,"Noto Sans TC","PingFang TC","Microsoft JhengHei",sans-serif}
+html,body{background:var(--paper)}
+body{font-family:var(--sans);color:#111}
+/* header */
+.top{padding:0!important;gap:0!important;background:var(--paper)!important;border-bottom:1px solid #111;align-items:stretch;flex-wrap:wrap}
+body.teach .top{background:var(--paper)!important}
+.top h1{margin:0;padding:max(14px,env(safe-area-inset-top)) 28px 14px;font-size:clamp(26px,4vw,44px);line-height:.92;font-weight:800;letter-spacing:-.045em;text-transform:uppercase;border-right:1px solid #111;display:flex;align-items:center}
+.top button{border-radius:0;background:transparent;color:#111;border:0;border-right:1px solid #111;padding:0 22px;min-height:56px;font:600 12px var(--mono);letter-spacing:.1em;text-transform:uppercase}
+.top button:hover:not(:disabled){background:var(--hov);transform:none}
+.top button.cur,.top button.cur:hover:not(:disabled){background:#111;color:var(--paper)}
+.top button.cur::before{content:"●";color:var(--y);margin-right:8px;font-size:9px;vertical-align:1px}
+#topReader{align-items:center;border-right:1px solid #111;padding-left:18px;font:600 12px var(--mono);letter-spacing:.1em}
+.menuwrap{display:flex;align-self:stretch}
+.menuwrap>button{border-right:0;border-left:1px solid #111}
+.menu{border-radius:0;border:1px solid #111;box-shadow:none;background:var(--paper);padding:0;gap:0;top:100%;min-width:210px}
+.top .menu button{background:transparent;color:#111;border:0;border-bottom:1px solid #111;min-height:48px;padding:0 18px;text-align:left;text-transform:none;letter-spacing:.04em}
+.top .menu button:last-child{border-bottom:0}
+.top .menu button:hover{background:#111;color:var(--paper)}
+.ticker{flex:none;overflow:hidden;white-space:nowrap;border-bottom:1px solid #111;background:var(--paper);font:600 11px var(--mono);letter-spacing:.12em;text-transform:uppercase;padding:9px 0}
+.ticker .tk{display:inline-flex;animation:tk 45s linear infinite}
+.ticker span{padding:0 24px}
+.ticker span::before{content:"◦";margin-right:12px;color:var(--y);font-weight:800}
+@keyframes tk{to{transform:translateX(-50%)}}
+@media (prefers-reduced-motion:reduce){.ticker .tk{animation:none}}
+/* controls */
+.chip{border:1px solid #111;border-radius:0;font:600 12px var(--mono);letter-spacing:.06em;padding:7px 14px;background:transparent;color:#111}
+.chip:hover{background:var(--hov)}
+.chip.on{background:#111;color:var(--paper)}
+.btn{border:1px solid #111;border-radius:0;background:transparent;color:#111;font:600 12px var(--mono);letter-spacing:.08em;padding:10px 18px}
+.btn:hover{background:var(--hov)}
+.btn.pri{background:#111;color:var(--paper)}
+.btn.pri:hover{background:var(--y);color:#111}
+.btn.dng{color:#b91c1c;border-color:#b91c1c}
+.btn.cmp{font-size:13px;background:transparent}
+.btn.cmp.on{background:var(--y);color:#111;box-shadow:none}
+input,select,textarea{border:1px solid #111;border-radius:0;background:var(--cream)}
+.tag{border-radius:0;background:transparent;color:#111;border:1px solid #111;font:600 10.5px var(--mono);letter-spacing:.08em;padding:2px 8px}
+.tag[style]{background:var(--y)!important;color:#111!important}
+/* library: hairline grid */
+#lib{padding:26px 28px 40px!important}
+.filters b,.yr{font:600 11px var(--mono);letter-spacing:.14em;color:#111}
+.yr{margin:34px 0 0;padding:10px 0;border-top:1px solid #111}
+.yr::before{content:"/ ";color:var(--y)}.yr::after{content:""}
+.cards{gap:0;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));border-left:1px solid #111;border-top:1px solid #111;counter-reset:c}
+.card{border:0;border-right:1px solid #111;border-bottom:1px solid #111;border-radius:0;box-shadow:none;background:transparent;padding:16px 20px 18px;counter-increment:c}
+.card::before{content:"[" counter(c,decimal-leading-zero) "]";font:600 11px var(--mono);color:var(--y);letter-spacing:.08em}
+.card:hover{background:var(--cream)}
+.card.sel{background:#fff;box-shadow:inset 0 0 0 3px var(--y);border-color:#111}
+.card .t{font-size:20px;font-weight:800;letter-spacing:-.02em;line-height:1.25}
+.card .m{font-size:13px}
+.pickbar{background:var(--paper);border:1px solid #111;border-radius:0;box-shadow:none;padding:10px 16px}
+.credit{border:1px dashed #111;border-radius:0;background:transparent}
+/* skills + reader */
+.skills{padding:14px 28px 6px!important}
+.seg{background:transparent;color:#111;border-radius:0;padding:0 8px 0 0;font:600 11px var(--mono);letter-spacing:.12em;text-transform:uppercase}
+.seg::before{content:"●";color:var(--y);margin-right:8px;font-size:9px}
+.seg small{opacity:.7}
+.blk{border-radius:0;border:1px solid #111!important;box-shadow:none;padding:6px 16px;font-size:15px}
+.blk:hover{transform:none;box-shadow:none;background:var(--hov)!important}
+.blk.act,.blk.act:hover{background:var(--y)!important;color:#111;font-size:15px;transform:none;box-shadow:none}
+.skills.has-act .blk:not(.act){background:var(--hov)!important}
+.segtools button,.segbar button,.prbar button{border:1px solid #111;border-radius:0;background:transparent;color:#111;font:600 12px var(--mono);letter-spacing:.06em;padding:7px 14px}
+.segtools button:hover,.segbar button:hover,.prbar button:hover{background:var(--hov)}
+.prbar button.pri{background:#111;color:var(--paper)}
+.prbar .badge,.modebadge{border-radius:0}
+.panes{gap:16px;padding:10px 28px 14px}
+.pane{background:var(--cream);border:1px solid #111;border-radius:0;box-shadow:none}
+.ph{padding:10px 18px;border-bottom:1px solid #111;font-size:15px;font-weight:700}
+.pdesc{border-bottom:1px dashed #111;font:600 11px var(--mono);letter-spacing:.04em;padding:7px 18px}
+.body{border-radius:0}
+.s{border-radius:2px}
+.dock{padding:12px 28px 18px;gap:16px}
+.dcol{background:var(--cream);border:1px solid #111;border-radius:0;box-shadow:none;padding:12px 8px 14px 14px}
+.grip i{border-top:1px solid #111}
+.grip i::after{background:var(--paper)}
+.qn{border:1px solid #111;border-radius:0;background:transparent}
+.qn.cur{background:#111!important;color:var(--paper)}
+.qn.ok{background:#bbf7d0}.qn.bad{background:#fecaca}
+.opt{border:1px solid #111;border-radius:0;background:var(--paper)}
+.opt:hover{background:var(--hov)}
+.opt.pick,.opt.pick:hover{background:var(--y);color:#111;box-shadow:none}
+.opt.ok,.opt.ok:hover{background:#bbf7d0}.opt.bad,.opt.bad:hover{background:#fecaca}
+.blank{border-radius:0}
+.npill,.nraw,.nans{border-radius:0}
+.mbox{background:var(--paper);border:1px solid #111;border-radius:0;box-shadow:none}
+.fmt{border-radius:0}
+.toast{border-radius:0}
+/* demo */
+#demo{padding:26px 28px 56px}
+.dintro,.rcard,details.ab{background:transparent;border:1px solid #111;border-radius:0;box-shadow:none;padding:22px 26px}
+details.ab{padding:6px 26px 16px}
+.dintro h2{font-size:clamp(24px,3.2vw,38px);line-height:1.05;letter-spacing:-.03em;font-weight:800}
+.rcard h2{letter-spacing:-.03em;font-weight:800}
+.dsteps span{border:1px solid #111;border-radius:0;background:var(--cream);font-size:16px}
+.dsteps i{color:var(--y)}
+.rmeta div,.tcols>div,.flow>div,.trapg>div,.sfmt{border:1px solid #111;border-radius:0;background:var(--cream)}
+.tcols .trapc{background:#fff;border-color:#111;border-left:3px solid var(--y)}
+.rmeta b,.tcols b{color:#111;letter-spacing:.14em}
+.ex,.qi,.drill .dq{border:1px solid #111;border-radius:0;background:var(--cream)}
+.ex:hover{background:#fff}
+.qi .mp{border:1px dashed #111;border-radius:0;background:transparent}
+.qo{border:1px solid #111;border-radius:0;background:var(--paper)}
+.qo:hover{background:var(--hov)}
+.qi.done .qo.ok,.qi.done .qo.ok:hover{background:#bbf7d0}.qi.done .qo.bad,.qi.done .qo.bad:hover{background:#fecaca}
+.dopt{border-width:1px;border-radius:0;font:700 15px var(--sans)}
+.dq .dwhy{border-radius:0;background:var(--paper)}
+.etag{border:1px solid #111;border-radius:0;font-family:var(--mono);font-size:11px}
+.qtip,.ttip{border-radius:0;background:#fff;border-left:3px solid var(--y)}
+.dtbl th,.dtbl td{border:1px solid #111}
+.dtbl th{background:var(--hov);font:600 12px var(--mono);letter-spacing:.06em}
+.rdir{border-radius:0}
+.rcard .npill{border-width:1px}
+.ant{border-radius:2px}
+@media (max-width:800px){#lib,#demo{padding-left:14px!important;padding-right:14px!important}.top h1{padding-left:14px;padding-right:14px}.top button{padding:0 14px}}
+@media print{.ticker{display:none}}
 </style>
 </head>
 <body>
 <div class="top">
   <h1>Reading Lab</h1>
-  <button onclick="showLib()">文章庫</button>
-  <button onclick="openPrac()">混合練習</button>
-  <button onclick="showDemo()">技巧示範</button>
+  <button class="nv" data-v="lib" onclick="showLib()">文章庫</button>
+  <button class="nv" data-v="prac" onclick="openPrac()">混合練習</button>
+  <button class="nv" data-v="demo" onclick="showDemo()">技巧示範</button>
   <span id="topReader" style="display:none;gap:8px;align-items:center;display:none">
     字級 <button onclick="fs(-2)">A−</button><button onclick="fs(2)">A+</button>
   </span>
@@ -347,6 +466,8 @@ details.ab .tq{font-weight:600;font-size:16px;color:#111b;margin:0 0 10px}
     <div class="menu" id="menu"><button onclick="closeMenu();openBulk()">整份試卷貼上</button><button onclick="closeMenu();openEditor()">新增文章</button><button onclick="closeMenu();loadRefs(true)">載入標準技巧標記</button><button onclick="closeMenu();exportData()">備份</button><button onclick="closeMenu();document.getElementById('imp').click()">匯入</button></div></div>
   <input id="imp" type="file" accept=".json" style="display:none" onchange="importData(this)">
 </div>
+
+<div class="ticker" id="ticker" aria-hidden="true"><div class="tk"><span>Circle the cue</span><span>Name the relationship</span><span>Test it in the sentence</span><span>圈線索詞</span><span>判斷關係</span><span>放進去驗證</span><span>Circle the cue</span><span>Name the relationship</span><span>Test it in the sentence</span><span>圈線索詞</span><span>判斷關係</span><span>放進去驗證</span></div></div>
 
 <div id="lib"></div>
 
@@ -423,8 +544,9 @@ function pruneSeeds(){
   return drop.length;
 }
 /* ---------- library ---------- */
-function showLib(){pr=null;pracBar();$('#reader').style.display='none';$('#demo').style.display='none';$('#lib').style.display='block';$('#topReader').style.display='none';renderLib()}
-function showDemo(){pr=null;pracBar();$('#reader').style.display='none';$('#lib').style.display='none';$('#topReader').style.display='none';$('#demo').style.display='block';renderDemo();$('#demo').scrollTop=0}
+function nav(k,hideTk){document.querySelectorAll('.top .nv').forEach(b=>b.classList.toggle('cur',b.dataset.v===k));$('#ticker').style.display=hideTk?'none':'block'}
+function showLib(){pr=null;pracBar();nav('lib');$('#reader').style.display='none';$('#demo').style.display='none';$('#lib').style.display='block';$('#topReader').style.display='none';renderLib()}
+function showDemo(){pr=null;pracBar();nav('demo');$('#reader').style.display='none';$('#lib').style.display='none';$('#topReader').style.display='none';$('#demo').style.display='block';renderDemo();$('#demo').scrollTop=0}
 function renderLib(){
   const years=['全部',...[...new Set(data.map(p=>p.year))].sort().reverse()];
   const types=['全部',...TYPES];
@@ -617,7 +739,7 @@ function noteHtml(x){
   const ans=x.ansText||x.ans;
   return `<div class="note"><div class="nhead">${x.label?`<span class="nraw">${esc(x.label)}</span>`:''}${pills}${raw}${ans?`<span class="nans">答案 ${esc(ans)}</span>`:''}</div>${x.note?`<div class="ntext">${esc(x.note)}</div>`:''}</div>`}
 function openReader(ids){
-  open=ids.slice(0,2);open.forEach(id=>{curQ[id]=curQ[id]??(P(id).qs[0]?.n)});
+  open=ids.slice(0,2);open.forEach(id=>{curQ[id]=curQ[id]??(P(id).qs[0]?.n)});nav(pr?'prac':'lib',true);
   $('#lib').style.display='none';$('#demo').style.display='none';$('#reader').style.display='flex';$('#topReader').style.display='inline-flex';
   $('#panes').innerHTML=open.map(id=>{const p=P(id);return `<div class="pane"><div class="ph"><span class="tag">${esc(p.year)}</span><span class="tag">${esc(p.type)}</span>${esc(p.title)}</div>${/^gsat-\d+/.test(p.id)?`<div class="pdesc">出處:大考中心 ${esc(p.year)} 學年度學科能力測驗(ceec.edu.tw)</div>`:''}${p.desc?`<div class="pdesc">${esc(p.desc)}</div>`:''}<div class="body" id="b_${id}">${buildPassage(p)||emptyHtml(p)}</div></div>`}).join('');
   $('#dock').innerHTML='<div class="grip" id="grip" title="上下拖曳調整高度"><i></i></div>'+open.map(id=>`<div class="dcol" id="d_${id}"></div>`).join('');bindGrip();
