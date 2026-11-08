@@ -244,8 +244,93 @@ body{height:100dvh;touch-action:manipulation}
 .segbar button,.segtools button{border:2px solid #111;background:#fff;color:#111;border-radius:999px;padding:5px 14px;font-weight:700;font-size:14px}
 .segbar button:disabled,.segtools button:disabled{opacity:.35}
 @media (max-width:800px){.segbar{padding-left:14px;padding-right:14px}.seg small{display:none}}
-.card .row label{display:inline-flex;align-items:center;gap:10px;font-weight:700;font-size:17px;padding:8px 6px;cursor:pointer}
-.card .row input[type=checkbox]{width:30px;height:30px;accent-color:#f97316;cursor:pointer;flex:none;margin:0}
+.card .row{flex-wrap:wrap}
+.btn.cmp{flex:1 1 100%;min-height:46px;padding:8px 20px;font-size:17px;background:#fff;color:#111;transition:transform .12s,background .12s}
+.btn.cmp:hover{background:var(--y)}
+.btn.cmp.on{background:#f97316;color:#111;box-shadow:inset 0 0 0 2px #111}
+
+/* ===== v15: 技巧示範 ===== */
+#demo{display:none;flex:1;min-height:0;overflow:auto;padding:22px 40px 56px;-webkit-overflow-scrolling:touch}
+.dbar{display:flex;gap:10px;flex-wrap:wrap;align-items:center;margin-bottom:18px}
+.dbar .chip{font-size:16px;padding:8px 20px}
+.dbar .btn{padding:6px 16px;font-size:14px}
+.dintro,.rcard{background:var(--cream);border:2px solid var(--k);border-radius:var(--r);box-shadow:6px 6px 0 var(--k);padding:22px 26px;margin-bottom:26px}
+.dintro h2,.rcard h2{margin:0 0 6px;font-size:22px;letter-spacing:-.01em}
+.dintro p{margin:.4em 0;line-height:1.7;font-size:17px}
+.dsteps{display:flex;gap:10px;flex-wrap:wrap;align-items:center;margin:12px 0 4px;font-weight:800;font-size:18px}
+.dsteps span{border:2px solid #111;border-radius:999px;padding:6px 18px;background:#fff}
+.dsteps i{font-style:normal;font-size:20px}
+.rhead{display:flex;gap:12px;flex-wrap:wrap;align-items:center;margin-bottom:10px}
+.rcard .npill{font-size:22px;padding:5px 22px}
+.rq{font-size:20px;font-weight:800}
+.rdir{font:600 12px ui-monospace,Menlo,monospace;letter-spacing:.06em;background:#111;color:var(--y);border-radius:999px;padding:4px 12px;margin-left:auto}
+.rdir.flip{background:#d97706;color:#fff}.rdir.ref{background:#db2777;color:#fff}
+.rmeta{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:10px;margin:8px 0 14px}
+.rmeta div{background:#fff;border:2px solid #111;border-radius:20px;padding:10px 16px;font-size:16px;line-height:1.6}
+.rmeta b{display:block;font:600 11px ui-monospace,Menlo,monospace;letter-spacing:.12em;color:#111a;margin-bottom:2px}
+.rmeta .mn{font-size:20px;font-weight:800}
+.ex{background:#fff;border:2px solid #111;border-radius:20px;padding:12px 18px;margin:10px 0;cursor:pointer;font-size:21px;line-height:1.65;position:relative}
+.ex:hover{background:#fffbe0}
+.ex .why{display:none;margin-top:8px;padding-top:8px;border-top:2px dashed #11111130;font-size:16.5px;color:#111d;line-height:1.7}
+.ex.open .why{display:block}
+.ex::after{content:"點一下看解析";position:absolute;right:16px;top:8px;font:600 11px ui-monospace,Menlo,monospace;color:#111a}
+.ex.open::after{content:"收起"}
+.cue{background:var(--cc);border-bottom:3px solid var(--c);border-radius:5px;padding:0 4px;font-weight:800}
+.ant{outline:2.5px dashed #16a34a;outline-offset:1px;border-radius:6px;padding:0 2px}
+.nocue .ex:not(.open) .cue,.nocue .ex:not(.open) .ant{background:none;border-color:transparent;outline:none;font-weight:inherit;padding:0}
+.dsub{font:600 12px ui-monospace,Menlo,monospace;letter-spacing:.14em;color:#111a;margin:18px 0 4px}
+.drill .dq{background:#fff;border:2px solid #111;border-radius:20px;padding:14px 18px;margin:12px 0}
+.drill .ds{font-size:21px;line-height:1.65;margin-bottom:10px}
+.dopts{display:flex;gap:8px;flex-wrap:wrap}
+.dopt{border:2px solid;border-radius:999px;padding:7px 18px;font-weight:800;font-size:16px;color:#111;min-height:42px}
+.dq.done .dopt{pointer-events:none;opacity:.45}
+.dq.done .dopt.ok{opacity:1;box-shadow:0 0 0 3px #16a34a}
+.dq.done .dopt.bad{opacity:1;box-shadow:0 0 0 3px #dc2626;text-decoration:line-through}
+.dq .dwhy{display:none;margin-top:10px;font-size:16px;line-height:1.7;background:#f3f4f6;border-radius:14px;padding:8px 14px}
+.dq.done .dwhy{display:block}
+.dscore{font-weight:800;font-size:17px}
+.tcols{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:10px;margin:8px 0 14px}
+.tcols>div{background:#fff;border:2px solid #111;border-radius:20px;padding:12px 18px;font-size:16px;line-height:1.65}
+.tcols b{display:block;font:600 11px ui-monospace,Menlo,monospace;letter-spacing:.12em;color:#111a;margin-bottom:4px}
+.tcols ul{margin:0;padding-left:1.2em}
+.tcols .trapc{border-color:#dc2626;background:#fff5f5}
+.qi{background:#fff;border:2px solid #111;border-radius:22px;padding:16px 20px;margin:14px 0}
+.qi .mp{background:var(--cream);border:2px dashed #11111155;border-radius:16px;padding:12px 16px;font-size:20px;line-height:1.7;margin-bottom:10px}
+.qi .qst{font-size:19px;font-weight:800;margin:8px 0}
+.qo{display:block;width:100%;text-align:left;border:2px solid #111;background:#fff;border-radius:18px;padding:9px 16px;margin:7px 0;font-size:18px;color:#111}
+.qo:hover{background:var(--y)}
+.qo b{margin-right:8px}
+.qi.done .qo{pointer-events:none}
+.qi.done .qo.ok{background:#bbf7d0}.qi.done .qo.bad{background:#fecaca}
+.qexp{display:none;margin-top:10px;border-top:2px dashed #11111130;padding-top:8px}
+.qi.done .qexp{display:block}
+.qexp .er{display:flex;gap:8px;align-items:flex-start;margin:6px 0;font-size:16px;line-height:1.65}
+.qexp .er>b{flex:none;width:2.2em}
+.etag{flex:none;font:700 12px/1.9 system-ui,sans-serif;border-radius:999px;padding:0 10px;background:#fecaca;border:1.5px solid #111;white-space:nowrap}
+.etag.good{background:#bbf7d0}
+.qtip{margin-top:6px;background:#fef9c3;border-radius:14px;padding:8px 14px;font-size:16px;line-height:1.6}
+.dtbl{border-collapse:collapse;margin:8px 0 10px;font-size:17px;background:#fff}
+.dtbl th,.dtbl td{border:2px solid #111;padding:6px 16px;text-align:center}
+.dtbl th{background:var(--y)}
+.dtbl.left td,.dtbl.left th{text-align:left}
+.trapg{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:12px}
+.trapg>div{background:#fff;border:2px solid #111;border-radius:20px;padding:14px 18px;font-size:16px;line-height:1.7}
+.trapg h3{margin:0 0 6px;font-size:19px}
+.trapg .bad{color:#b91c1c;font-weight:700}
+.trapg .good{color:#166534;font-weight:700}
+.flow{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:10px}
+.flow>div{background:#fff;border:2px solid #111;border-radius:20px;padding:12px 16px;font-size:16px;line-height:1.6}
+.flow b{font-size:22px;margin-right:6px}
+details.ab{background:var(--cream);border:2px solid #111;border-radius:var(--r);box-shadow:6px 6px 0 #111;margin-bottom:22px;padding:6px 24px 16px}
+details.ab summary{cursor:pointer;font-size:21px;font-weight:800;padding:14px 0;list-style:none}
+details.ab summary::-webkit-details-marker{display:none}
+details.ab summary::after{content:"＋";float:right}
+details.ab[open] summary::after{content:"－"}
+details.ab .tq{font-weight:600;font-size:16px;color:#111b;margin:0 0 10px}
+.sfmt{background:#fff;border:2px dashed #11111155;border-radius:16px;padding:10px 16px;font-size:16px;line-height:1.8;margin:8px 0}
+.ttip{background:#fef9c3;border-radius:14px;padding:8px 14px;font-size:16px;line-height:1.6;margin:8px 0}
+@media (max-width:800px){#demo{padding-left:14px;padding-right:14px}.rdir{margin-left:0}}
+@media print{#demo{display:none!important}}
 </style>
 </head>
 <body>
@@ -253,6 +338,7 @@ body{height:100dvh;touch-action:manipulation}
   <h1>Reading Lab</h1>
   <button onclick="showLib()">文章庫</button>
   <button onclick="openPrac()">混合練習</button>
+  <button onclick="showDemo()">技巧示範</button>
   <span id="topReader" style="display:none;gap:8px;align-items:center;display:none">
     字級 <button onclick="fs(-2)">A−</button><button onclick="fs(2)">A+</button>
   </span>
@@ -263,6 +349,8 @@ body{height:100dvh;touch-action:manipulation}
 </div>
 
 <div id="lib"></div>
+
+<div id="demo"></div>
 
 <div id="reader">
   <div class="skills" id="skills"></div>
@@ -277,6 +365,7 @@ body{height:100dvh;touch-action:manipulation}
 <div class="modal" id="modal"><div class="mbox" id="mbox"></div></div>
 
 <script src="seed.js"></script>
+<script src="demo.js"></script>
 <script>
 const SKILLS=[
  {id:'turn',name:'轉折',cue:'but, however, yet, although',c:'#d97706',p:'#fcd9a8'},
@@ -334,7 +423,8 @@ function pruneSeeds(){
   return drop.length;
 }
 /* ---------- library ---------- */
-function showLib(){pr=null;pracBar();$('#reader').style.display='none';$('#lib').style.display='block';$('#topReader').style.display='none';renderLib()}
+function showLib(){pr=null;pracBar();$('#reader').style.display='none';$('#demo').style.display='none';$('#lib').style.display='block';$('#topReader').style.display='none';renderLib()}
+function showDemo(){pr=null;pracBar();$('#reader').style.display='none';$('#lib').style.display='none';$('#topReader').style.display='none';$('#demo').style.display='block';renderDemo();$('#demo').scrollTop=0}
 function renderLib(){
   const years=['全部',...[...new Set(data.map(p=>p.year))].sort().reverse()];
   const types=['全部',...TYPES];
@@ -347,7 +437,7 @@ function renderLib(){
   Object.keys(groups).sort().reverse().forEach(y=>{
     h+=`<div class="yr">${esc(y)}</div><div class="cards">`+groups[y].map(p=>`<div class="card ${selIds.includes(p.id)?'sel':''}">
       <div class="t">${esc(p.title)}</div><div class="m"><span class="tag">${esc(p.type)}</span> ${p.qs.length} 題 ${p.text.trim()?'':'<span class="tag" style="background:#facc15;color:#111">待貼原文</span>'}${pracMeta(p.id)}</div>
-      <div class="row"><label><input type="checkbox" ${selIds.includes(p.id)?'checked':''} onchange="pick('${p.id}',this.checked)"> 加入對照</label><span class="sp"></span>
+      <div class="row"><button class="btn cmp ${selIds.includes(p.id)?'on':''}" onclick="pick('${p.id}',${!selIds.includes(p.id)})">${selIds.includes(p.id)?'✓ 已加入對照':'＋ 加入對照'}</button><span class="sp"></span>
       <button class="btn pri" onclick="openReader(['${p.id}'])">開啟</button><button class="btn" onclick="openEditor('${p.id}')">編輯</button></div></div>`).join('')+'</div>';
   });
   if(selIds.length)h+=`<div class="pickbar"><b>已選 ${selIds.length}/2</b><span>${selIds.map(i=>esc(P(i)?.title||'')).join(' ⇄ ')}</span><span class="sp"></span><button class="btn" onclick="selIds=[];renderLib()">清除</button><button class="btn pri" onclick="openReader(selIds.slice())">並排開啟</button></div>`;
@@ -528,7 +618,7 @@ function noteHtml(x){
   return `<div class="note"><div class="nhead">${x.label?`<span class="nraw">${esc(x.label)}</span>`:''}${pills}${raw}${ans?`<span class="nans">答案 ${esc(ans)}</span>`:''}</div>${x.note?`<div class="ntext">${esc(x.note)}</div>`:''}</div>`}
 function openReader(ids){
   open=ids.slice(0,2);open.forEach(id=>{curQ[id]=curQ[id]??(P(id).qs[0]?.n)});
-  $('#lib').style.display='none';$('#reader').style.display='flex';$('#topReader').style.display='inline-flex';
+  $('#lib').style.display='none';$('#demo').style.display='none';$('#reader').style.display='flex';$('#topReader').style.display='inline-flex';
   $('#panes').innerHTML=open.map(id=>{const p=P(id);return `<div class="pane"><div class="ph"><span class="tag">${esc(p.year)}</span><span class="tag">${esc(p.type)}</span>${esc(p.title)}</div>${/^gsat-\d+/.test(p.id)?`<div class="pdesc">出處:大考中心 ${esc(p.year)} 學年度學科能力測驗(ceec.edu.tw)</div>`:''}${p.desc?`<div class="pdesc">${esc(p.desc)}</div>`:''}<div class="body" id="b_${id}">${buildPassage(p)||emptyHtml(p)}</div></div>`}).join('');
   $('#dock').innerHTML='<div class="grip" id="grip" title="上下拖曳調整高度"><i></i></div>'+open.map(id=>`<div class="dcol" id="d_${id}"></div>`).join('');bindGrip();
   document.documentElement.style.setProperty('--fs',ui.fs+'px');
