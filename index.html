@@ -307,6 +307,9 @@ const toast=m=>{const t=$('#toast');t.textContent=m;t.classList.add('on');clearT
 const esc=s=>String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
 
 /* ---------- drop built-in demo cards once the real passages are pasted ---------- */
+function fixOpts(){let n=0;const fo=a=>{if(!a)return a;const out=[];a.forEach(o=>{const r=splitOpts('('+o.k+') '+o.t);if(r.opts.length>1||r.opts.length===1&&r.opts[0].t!==o.t){n+=r.opts.length>1?r.opts.length-1:0;if(r.opts.length>1||true){r.opts.forEach(x=>out.push(Object.assign({},o,x)));return}}out.push(o)});return out};
+  data.forEach(p=>{if(p.bank&&p.bank.length){const b=fo(p.bank);if(JSON.stringify(b)!==JSON.stringify(p.bank)){p.bank=b;n+=0.001}}
+    (p.qs||[]).forEach(q=>{if(q.opts&&q.opts.length){const b=fo(q.opts);if(JSON.stringify(b)!==JSON.stringify(q.opts)){q.opts=b;n+=0.001}}})});return n}
 function pruneSeeds(){
   const cov={};
   data.forEach(p=>{const m=p.id.match(/^exam-(\d+)-/);if(m&&p.text.trim())p.qs.forEach(q=>(cov[m[1]]??=new Set()).add(q.n))});
@@ -411,14 +414,15 @@ function importData(el){const f=el.files[0];if(!f)return;f.text().then(t=>{try{
   j.data.forEach(p=>{const r=p.ref;delete p.ref;if(!p.id)p.id='p'+Date.now()+Math.random().toString(36).slice(2,6);
     p.bank=p.bank||[];p.qs=p.qs||[];const i=data.findIndex(x=>x.id===p.id);if(i>=0)data[i]=p;else data.push(p);if(r)ref[p.id]=r});
   Object.assign(ann,j.ann||{});Object.assign(ref,j.ref||{});Object.assign(resp,j.resp||{});Object.assign(prac,j.prac||{});
-  const nd=pruneSeeds();sv(K.p,prac);sv(K.d,data);saveAnn();sv(K.r,resp);sv(K.f,ref);showLib();if(nd)toast('已整理掉 '+nd+' 張重複的舊示範卡');loadRefs(true,true)}catch(e){alert('檔案格式不正確')}});el.value=''}
+  const fx=fixOpts();const nd=pruneSeeds();sv(K.p,prac);sv(K.d,data);saveAnn();sv(K.r,resp);sv(K.f,ref);showLib();if(nd)toast('已整理掉 '+nd+' 張重複的舊示範卡');else if(fx)toast('已修正選項切分');loadRefs(true,true)}catch(e){alert('檔案格式不正確')}});el.value=''}
 
 
 /* ---------- bulk exam paste ---------- */
 let bulk=[];
 const SEC=['詞彙題','綜合測驗','文意選填','篇章結構','閱讀測驗','混合題'];
-function cleanLines(t){return t.replace(/\r/g,'').split('\n').map(l=>l.replace(/[ 　]/g,' ').replace(/\*\*/g,'').trim()).filter(l=>l&&!/^[-–]\s*\d+\s*[-–]$/.test(l)&&!/^(英文考科\s*)?共\s*\d+\s*頁(\s*英文考科)?$/.test(l)&&!/^英文考科$/.test(l)&&!/^第\s*\d*\s*頁$/.test(l)&&!/請記得在答題卷簽名欄位|財團法人大學入學考試中心基金會|^\d+\s*學年度學科能力測驗試題$/.test(l))}
-function splitOpts(str){const re=/\(([A-J])\)\s*/g;const ix=[];let m;while((m=re.exec(str)))ix.push({k:m[1],i:m.index,e:re.lastIndex});
+function cleanLines(t){return t.replace(/\r/g,'').split('\n').map(l=>l.replace(/[ 　]/g,' ').replace(/\*\*/g,'').trim()).filter(l=>l&&!/^[-–]\s*\d+\s*[-–]$/.test(l)&&!/^(英文考科\s*)?共\s*\d+\s*頁(\s*英文考科)?$/.test(l)&&!/^英文考科$/.test(l)&&!/^第\s*\d*\s*頁$/.test(l)&&!/^\d{2,3}\s*年\s*(學測|指考|學科能力測驗)[^\n]{0,12}?第\s*\d*\s*頁$/.test(l)&&!/請記得在答題卷簽名欄位|財團法人大學入學考試中心基金會|^\d+\s*學年度學科能力測驗試題$/.test(l))}
+const FOOT=/\d{2,3}\s*年\s*(學測|指考|學科能力測驗)[^\n]{0,12}?第\s*\d*\s*頁/g;
+function splitOpts(str){str=str.replace(FOOT,' ');const re=/[(（]\s*([A-J])\s*[)）]\s*/g;const ix=[];let m;while((m=re.exec(str)))ix.push({k:m[1],i:m.index,e:re.lastIndex});
   return {stem:(ix.length?str.slice(0,ix[0].i):str).trim(),opts:ix.map((x,j)=>({k:x.k,t:str.slice(x.e,j+1<ix.length?ix[j+1].i:str.length).trim()}))}}
 function toParas(lines){let out=[],cur='';lines.map(l=>l.replace(/\s{2,}/g,' ')).forEach(l=>{cur+=(cur?' ':'')+l;if(/[.!?]["”’']?$/.test(l)&&l.length<55){out.push(cur);cur=''}});if(cur)out.push(cur);return out.join('\n\n')}
 function parseExam(raw){
@@ -704,7 +708,7 @@ document.addEventListener('click',e=>{if(!e.target.closest('.menuwrap'))closeMen
 document.addEventListener('keydown',e=>{if(e.key==='Escape'){if(act)setAct(act);closeM()}});
 $('#modal').addEventListener('click',e=>{if(e.target.id==='modal')closeM()});
 if('serviceWorker' in navigator&&location.protocol.startsWith('http'))navigator.serviceWorker.register('sw.js').catch(()=>{});
-if(pruneSeeds()){sv(K.d,data);saveAnn();sv(K.r,resp);sv(K.p,prac)}
+const _fx=fixOpts();if(_fx)sv(K.d,data);if(pruneSeeds()){sv(K.d,data);saveAnn();sv(K.r,resp);sv(K.p,prac)}
 renderLib();loadRefs(false);
 </script>
 </body>
