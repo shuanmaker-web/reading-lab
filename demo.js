@@ -342,10 +342,11 @@ function dTab(t){if(t==='rel')relView=null;demoTab=t;ui.demoTab=t;sv(K.u,ui);ren
 function renderDemo(){
   if(!demoInit){demoInit=true;if(ui.demoTab)demoTab=ui.demoTab}
   const el=$('#demo'),keepCue=el.classList.contains('nocue');
-  let h=`<div class="dbar">${DTABS.map(([k,n])=>`<button class="chip ${k===demoTab?'on':''}" onclick="dTab('${k}')">${n}</button>`).join('')}<span class="sp"></span>${demoTab==='rel'&&relView!=='drill'?`<button class="btn" id="btnCue" onclick="dCue()">${keepCue?'線索詞:隱藏(點句子才顯示)':'線索詞:顯示'}</button><button class="btn" onclick="dAll(true)">全部展開解析</button><button class="btn" onclick="dAll(false)">全部收起</button>`:''}</div>`;
+  let h=`<div class="dbar">${DTABS.map(([k,n])=>`<button class="chip ${k===demoTab?'on':''}" onclick="dTab('${k}')">${n}</button>`).join('')}<span class="sp"></span>${demoTab==='rel'&&relView!=='drill'&&relView!=='cues'?`<button class="btn" id="btnCue" onclick="dCue()">${keepCue?'線索詞:隱藏(點句子才顯示)':'線索詞:顯示'}</button><button class="btn" onclick="dAll(true)">全部展開解析</button><button class="btn" onclick="dAll(false)">全部收起</button>`:''}</div>`;
   h+=demoTab==='rel'?relHtml():demoTab==='qt'?qtHtml():abHtml();
   el.innerHTML=h;
   drillScore();
+  if(demoTab==='rel'&&relView==='cues')cueRender();
 }
 function dCue(){const el=$('#demo');el.classList.toggle('nocue');$('#btnCue').textContent=el.classList.contains('nocue')?'線索詞:隱藏(點句子才顯示)':'線索詞:顯示'}
 function dAll(on){document.querySelectorAll('#demo .ex').forEach(x=>x.classList.toggle('open',on))}
@@ -354,7 +355,7 @@ function dEx(el){el.classList.toggle('open')}
 let relView=null;
 function relGo(v){if(v==='drill')dState={};relView=v;renderDemo();$('#demo').scrollTop=0}
 function relTile(r){const s=SK(r.id);
-  return `<button class="rtile" style="--c:${s.c};--cc:${s.p}" onclick="relGo('${r.id}')"><span class="npill" style="background:${s.p};border-color:${s.c}">${s.name}</span><span class="tq">${esc(r.q)}</span><span class="tmn"><small>口訣</small>${esc(r.mn)}</span><span class="rdir ${r.dir}">${DIR[r.dir]}</span></button>`}
+  return `<button class="rtile" style="--c:${s.c};--cc:${s.p}" onclick="relGo('${r.id}')"><span class="npill">${s.name}</span><span class="rdir ${r.dir}">${DIR[r.dir]}</span><span class="tq">${esc(r.q)}</span><span class="tmn"><small>口訣</small>${esc(r.mn)}</span></button>`}
 function relHtml(){
   const back=`<div class="rback"><button class="btn" onclick="relGo(null)">← 回到總覽</button></div>`;
   if(relView==='drill'){
@@ -363,6 +364,7 @@ function relHtml(){
   <p style="margin:4px 0 8px;font-size:16px">先自己判斷,再點下面的色塊。(第 7、13 題的「關係」就是指代。)</p>
   ${DRILL.map((d,i)=>`<div class="dq" id="dq${i}"><div class="ds"><b>${i+1}.</b> ${esc(d.s)}</div><div class="dopts">${REL.map(r=>{const s=SK(r.id);return `<button class="dopt" data-k="${r.id}" style="background:${s.p};border-color:${s.c}" onclick="drillPick(${i},'${r.id}')">${s.name}</button>`}).join('')}</div><div class="dwhy"></div></div>`).join('')}</section>`;
     return h+back}
+  if(relView==='cues')return back+`<div class="dintro"><h2>線索詞速記:看到字,馬上想到關係</h2><p>① 認讀卡片:每種關係的線索詞放在一起,可以隱藏起來讓學生回想。② 隨機抽問:隨機出一個線索詞,學生說出是哪一種關係。</p><p style="font-size:15px">有些字有兩種用法(例如 while、since),這裡先記最常見的關係,實際判斷還是要看句意。</p></div><div id="cuebox"></div>`+back;
   const r=REL.find(x=>x.id===relView);
   if(r){
     const s=SK(r.id),i=REL.indexOf(r),pv=REL[i-1],nx=REL[i+1];
@@ -371,13 +373,13 @@ function relHtml(){
     <div class="rhead"><span class="npill" style="background:${s.p};border-color:${s.c}">${s.name}</span><span class="rq">${esc(r.q)}</span><span class="rdir ${r.dir}">${DIR[r.dir]}</span></div>
     <div class="rmeta"><div><b>口訣</b><span class="mn">${esc(r.mn)}</span></div><div><b>常見線索詞</b>${esc(r.cues)}</div><div><b>怎麼判斷</b>${esc(r.how)}</div><div><b>容易混淆</b>${esc(r.trap)}</div></div>
     ${r.ex.map(x=>`<div class="ex" onclick="dEx(this)"><div>${fmtS(x.s,s)}</div><div class="why">${esc(x.why)}</div></div>`).join('')}</section>`;
-    h+=`<div class="rback two">${pv?`<button class="btn" onclick="relGo('${pv.id}')">‹ ${SK(pv.id).name}</button>`:'<span></span>'}<button class="btn" onclick="relGo(null)">← 回到總覽</button>${nx?`<button class="btn" onclick="relGo('${nx.id}')">${SK(nx.id).name} ›</button>`:'<button class="btn" onclick="relGo(\'drill\')">小練習 ›</button>'}</div>`;
+    h+=`<div class="rback two">${pv?`<button class="btn" onclick="relGo('${pv.id}')">‹ ${SK(pv.id).name}</button>`:'<span></span>'}<button class="btn" onclick="relGo(null)">← 回到總覽</button>${nx?`<button class="btn" onclick="relGo('${nx.id}')">${SK(nx.id).name} ›</button>`:'<button class="btn" onclick="relGo(\'cues\')">線索詞速記 ›</button>'}</div>`;
     return h}
   let h=`<div class="dintro"><h2>看前後句,只問一個問題:這兩句是什麼關係?</h2>
   <p>綜合測驗、文意選填、篇章結構、閱讀測驗都適用。</p>
   <div class="dsteps"><span>① 圈線索詞</span><i>→</i><span>② 判斷關係</span><i>→</i><span>③ 放進去驗證</span></div>
   </div>
-  <div class="rgrid">${REL.map(relTile).join('')}<button class="rtile drilltile" onclick="relGo('drill')"><span class="npill">小練習</span><span class="tq">這是什麼關係?</span><span class="tmn"><small>共 ${DRILL.length} 題</small>先判斷,再點色塊</span><span class="rdir">練習</span></button></div>
+  <div class="rgrid">${REL.map(relTile).join('')}<button class="rtile" onclick="relGo('cues')"><span class="npill">線索詞速記</span><span class="rdir mute">認字練習</span><span class="tq">看到線索詞,馬上說出是哪一種關係。</span><span class="tmn"><small>顯示 / 隱藏 / 隨機抽問</small>共 ${cueCount()} 個字</span></button><button class="rtile" onclick="relGo('drill')"><span class="npill">小練習</span><span class="rdir mute">練習</span><span class="tq">這是什麼關係?</span><span class="tmn"><small>共 ${DRILL.length} 題</small>先判斷,再點色塊</span></button></div>
   <div class="dintro">
   <p><b>圈的範圍:</b>只圈空格或題目附近的前後一句,不要整篇都圈。</p>
   <p><b>顏色提醒:</b><span class="rdir flip" style="margin:0 4px">方向改變 · 小心</span>(轉折)、<span class="rdir" style="margin:0 4px">同方向</span>(並列、因果、舉例、時間、換句話說)、<span class="rdir ref" style="margin:0 4px">指代</span>。</p>
@@ -385,6 +387,46 @@ function relHtml(){
   <div class="ex" onclick="dEx(this)"><div>(1) Capsule hotels began in Osaka in 1979.<br>(2) [ 空格 ]<br>(3) [[However]], some guests find the space too small.<br><b>A.</b> They are cheap and convenient for travelers.　<b>B.</b> The rooms look like small tubes.</div><div class="why">後句有 However(轉折),所以空格要先講「正面」的事,選 <b>A</b>。B 只是描述外觀,接不上 However。</div></div>
   </div>`.replace('[[However]]',`<span class="cue" style="--c:#d97706;--cc:#fcd9a8">However</span>`);
   return h;
+}
+
+/* ============ 線索詞速記 ============ */
+const CUEW={
+ turn:['but','however','yet','although','while','whereas','instead','in contrast','despite'],
+ cause:['because','since','so','therefore','as a result','thus','due to','lead to','result in'],
+ para:['and','also','in addition','moreover','besides','similarly','likewise','both','not only … but also'],
+ ex:['for example','for instance','such as','like','including','e.g.','冒號 ( : )','破折號 ( — )'],
+ time:['first','then','later','finally','after','before','in 1979','by 2010','now','meanwhile','at that time'],
+ rep:['that is','in other words','namely','which means','i.e.','or','逗號或括號補充說明','同義詞重述'],
+ ref:['it','they','this','these','those','such','the latter','one','that']};
+const cueCount=()=>Object.values(CUEW).reduce((a,b)=>a+b.length,0);
+let cueMode='study',cueHide=false,cueOpen=new Set(),cq={deck:[],i:-1,cur:null,pick:null,shown:false,ok:0,n:0};
+function cueDeck(){
+  const m={};REL.forEach(r=>CUEW[r.id].forEach(w=>{if(!/[A-Za-z]/.test(w))return;const k=w.toLowerCase();(m[k]=m[k]||{w,ids:new Set()}).ids.add(r.id)}));
+  const a=Object.values(m).filter(x=>x.ids.size===1).map(x=>({w:x.w,id:[...x.ids][0]}));
+  for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]]}
+  return a}
+function cueNext(){if(!cq.deck.length||cq.i>=cq.deck.length-1){cq.deck=cueDeck();cq.i=-1}cq.i++;cq.cur=cq.deck[cq.i];cq.pick=null;cq.shown=false;cueRender()}
+function cuePick(id){if(cq.pick||cq.shown)return;cq.pick=id;cq.n++;if(id===cq.cur.id)cq.ok++;cueRender()}
+function cueShow(){if(cq.pick)return;cq.shown=true;cueRender()}
+function cueReset(){cq.ok=cq.n=0;cq.deck=[];cq.i=-1;cueNext()}
+function cueSet(m){cueMode=m;cueRender()}
+function cueToggle(){cueHide=!cueHide;cueOpen.clear();cueRender()}
+function cueFlip(id){if(!cueHide)return;cueOpen.has(id)?cueOpen.delete(id):cueOpen.add(id);cueRender()}
+function cueRender(){
+  const box=document.getElementById('cuebox');if(!box)return;
+  let h=`<div class="dbar"><button class="chip ${cueMode==='study'?'on':''}" onclick="cueSet('study')">① 認讀卡片</button><button class="chip ${cueMode==='quiz'?'on':''}" onclick="cueSet('quiz')">② 隨機抽問</button><span class="sp"></span>${cueMode==='study'?`<button class="btn" onclick="cueToggle()">線索詞:${cueHide?'隱藏(點卡片翻開)':'顯示'}</button>`:`<span class="dscore">${cq.n?`答對 ${cq.ok} / 已作答 ${cq.n}`:'還沒作答'}</span><button class="btn" onclick="cueReset()">重新開始</button>`}</div>`;
+  if(cueMode==='study'){
+    h+=`<div class="cgrid">${REL.map(r=>{const s=SK(r.id),vis=!cueHide||cueOpen.has(r.id);
+      return `<div class="ccard ${cueHide?'hid':''}" style="--c:${s.c};--cc:${s.p}" ${cueHide?`onclick="cueFlip('${r.id}')"`:''}><div class="chead"><span class="npill">${s.name}</span><span class="rdir ${r.dir}">${DIR[r.dir]}</span></div><div class="cmn"><small>口訣</small>${esc(r.mn)}</div>${vis?`<div class="cws">${CUEW[r.id].map(w=>`<span class="cw">${esc(w)}</span>`).join('')}</div>`:`<div class="cmask">點一下看線索詞(${CUEW[r.id].length} 個)</div>`}</div>`}).join('')}</div>`;
+  }else{
+    if(!cq.cur){cq.deck=cueDeck();cq.i=0;cq.cur=cq.deck[0]}
+    const c=cq.cur,done=!!cq.pick||cq.shown,ans=SK(c.id),r=REL.find(x=>x.id===c.id);
+    h+=`<div class="cq ${done?'done':''}"><div class="cword">${esc(c.w)}</div>
+    <div class="dopts" style="justify-content:center">${REL.map(x=>{const s=SK(x.id);const cls=done?(x.id===c.id?'ok':(x.id===cq.pick?'bad':'')):'';return `<button class="dopt ${cls}" style="background:${s.p};border-color:${s.c}" onclick="cuePick('${x.id}')">${s.name}</button>`}).join('')}</div>
+    <div class="cfb">${done?`${cq.pick?(cq.pick===c.id?'✓ 答對了。':'✗ 答案是「'+ans.name+'」。'):'答案:「'+ans.name+'」。'}口訣:${esc(r.mn)}<br><span class="cwl">${CUEW[c.id].map(esc).join('、')}</span>`:'看到這個字,是哪一種關係?(也可以讓學生口頭回答,再按「顯示答案」)'}</div>
+    <div class="cact">${done?'':`<button class="btn" onclick="cueShow()">顯示答案</button>`}<button class="btn go" onclick="cueNext()">下一個 ›</button></div></div>`;
+  }
+  box.innerHTML=h;
 }
 let dState={};
 function drillPick(i,k){
