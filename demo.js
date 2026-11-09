@@ -338,11 +338,11 @@ const ABIL=[
 /* ============ render ============ */
 let demoTab='rel',demoInit=false;
 const DTABS=[['rel','① 句子關係技巧'],['qt','② 閱讀測驗常見題型'],['ab','③ 六大閱讀能力']];
-function dTab(t){demoTab=t;ui.demoTab=t;sv(K.u,ui);renderDemo();$('#demo').scrollTop=0}
+function dTab(t){if(t==='rel')relView=null;demoTab=t;ui.demoTab=t;sv(K.u,ui);renderDemo();$('#demo').scrollTop=0}
 function renderDemo(){
   if(!demoInit){demoInit=true;if(ui.demoTab)demoTab=ui.demoTab}
   const el=$('#demo'),keepCue=el.classList.contains('nocue');
-  let h=`<div class="dbar">${DTABS.map(([k,n])=>`<button class="chip ${k===demoTab?'on':''}" onclick="dTab('${k}')">${n}</button>`).join('')}<span class="sp"></span>${demoTab==='rel'?`<button class="btn" id="btnCue" onclick="dCue()">${keepCue?'線索詞:隱藏(點句子才顯示)':'線索詞:顯示'}</button><button class="btn" onclick="dAll(true)">全部展開解析</button><button class="btn" onclick="dAll(false)">全部收起</button>`:''}</div>`;
+  let h=`<div class="dbar">${DTABS.map(([k,n])=>`<button class="chip ${k===demoTab?'on':''}" onclick="dTab('${k}')">${n}</button>`).join('')}<span class="sp"></span>${demoTab==='rel'&&relView!=='drill'?`<button class="btn" id="btnCue" onclick="dCue()">${keepCue?'線索詞:隱藏(點句子才顯示)':'線索詞:顯示'}</button><button class="btn" onclick="dAll(true)">全部展開解析</button><button class="btn" onclick="dAll(false)">全部收起</button>`:''}</div>`;
   h+=demoTab==='rel'?relHtml():demoTab==='qt'?qtHtml():abHtml();
   el.innerHTML=h;
   drillScore();
@@ -351,22 +351,39 @@ function dCue(){const el=$('#demo');el.classList.toggle('nocue');$('#btnCue').te
 function dAll(on){document.querySelectorAll('#demo .ex').forEach(x=>x.classList.toggle('open',on))}
 function dEx(el){el.classList.toggle('open')}
 
+let relView=null;
+function relGo(v){if(v==='drill')dState={};relView=v;renderDemo();$('#demo').scrollTop=0}
+function relTile(r){const s=SK(r.id);
+  return `<button class="rtile" style="--c:${s.c};--cc:${s.p}" onclick="relGo('${r.id}')"><span class="npill" style="background:${s.p};border-color:${s.c}">${s.name}</span><span class="tq">${esc(r.q)}</span><span class="tmn"><small>口訣</small>${esc(r.mn)}</span><span class="rdir ${r.dir}">${DIR[r.dir]}</span></button>`}
 function relHtml(){
-  let h=`<div class="dintro"><h2>看前後句,只問一個問題:這兩句是什麼關係?</h2>
-  <p>綜合測驗、文意選填、篇章結構、閱讀測驗都適用。每個技巧都有「線索詞」和「口訣」,下面的例句可以點開看解析;想讓學生自己圈,就先按右上的「線索詞:隱藏」。</p>
-  <div class="dsteps"><span>① 圈線索詞</span><i>→</i><span>② 判斷關係</span><i>→</i><span>③ 放進去驗證</span></div>
-  <p><b>圈的範圍:</b>只圈空格或題目附近的前後一句,不要整篇都圈。</p>
-  <p><b>顏色提醒:</b><span class="rdir flip" style="margin:0 4px">方向改變 · 小心</span>(轉折)、<span class="rdir" style="margin:0 4px">同方向</span>(並列、因果、舉例、時間、換句話說)、<span class="rdir ref" style="margin:0 4px">指代</span>。</p>
-  <div class="dsub">示範:放進去驗證</div>
-  <div class="ex" onclick="dEx(this)"><div>(1) Capsule hotels began in Osaka in 1979.<br>(2) [ 空格 ]<br>(3) [[However]], some guests find the space too small.<br><b>A.</b> They are cheap and convenient for travelers.　<b>B.</b> The rooms look like small tubes.</div><div class="why">後句有 However(轉折),所以空格要先講「正面」的事,選 <b>A</b>。B 只是描述外觀,接不上 However。</div></div></div>`.replace('[[However]]',`<span class="cue" style="--c:#d97706;--cc:#fcd9a8">However</span>`);
-  REL.forEach(r=>{const s=SK(r.id);
+  const back=`<div class="rback"><button class="btn" onclick="relGo(null)">← 回到總覽</button></div>`;
+  if(relView==='drill'){
+    let h=back;
+    h+=`<section class="rcard drill"><div class="rhead"><h2 style="margin:0">小練習:這是什麼關係?</h2><span class="sp"></span><span class="dscore" id="dscore"></span><button class="btn" onclick="drillReset()">重做</button></div>
+  <p style="margin:4px 0 8px;font-size:16px">先自己判斷,再點下面的色塊。(第 7、13 題的「關係」就是指代。)</p>
+  ${DRILL.map((d,i)=>`<div class="dq" id="dq${i}"><div class="ds"><b>${i+1}.</b> ${esc(d.s)}</div><div class="dopts">${REL.map(r=>{const s=SK(r.id);return `<button class="dopt" data-k="${r.id}" style="background:${s.p};border-color:${s.c}" onclick="drillPick(${i},'${r.id}')">${s.name}</button>`}).join('')}</div><div class="dwhy"></div></div>`).join('')}</section>`;
+    return h+back}
+  const r=REL.find(x=>x.id===relView);
+  if(r){
+    const s=SK(r.id),i=REL.indexOf(r),pv=REL[i-1],nx=REL[i+1];
+    let h=back;
     h+=`<section class="rcard" style="--c:${s.c};--cc:${s.p}">
     <div class="rhead"><span class="npill" style="background:${s.p};border-color:${s.c}">${s.name}</span><span class="rq">${esc(r.q)}</span><span class="rdir ${r.dir}">${DIR[r.dir]}</span></div>
     <div class="rmeta"><div><b>口訣</b><span class="mn">${esc(r.mn)}</span></div><div><b>常見線索詞</b>${esc(r.cues)}</div><div><b>怎麼判斷</b>${esc(r.how)}</div><div><b>容易混淆</b>${esc(r.trap)}</div></div>
-    ${r.ex.map(x=>`<div class="ex" onclick="dEx(this)"><div>${fmtS(x.s,s)}</div><div class="why">${esc(x.why)}</div></div>`).join('')}</section>`});
-  h+=`<section class="rcard drill"><div class="rhead"><h2 style="margin:0">小練習:這是什麼關係?</h2><span class="sp"></span><span class="dscore" id="dscore"></span><button class="btn" onclick="drillReset()">重做</button></div>
-  <p style="margin:4px 0 8px;font-size:16px">先自己判斷,再點下面的色塊。(第 7、13 題的「關係」就是指代。)</p>
-  ${DRILL.map((d,i)=>`<div class="dq" id="dq${i}"><div class="ds"><b>${i+1}.</b> ${esc(d.s)}</div><div class="dopts">${REL.map(r=>{const s=SK(r.id);return `<button class="dopt" data-k="${r.id}" style="background:${s.p};border-color:${s.c}" onclick="drillPick(${i},'${r.id}')">${s.name}</button>`}).join('')}</div><div class="dwhy"></div></div>`).join('')}</section>`;
+    ${r.ex.map(x=>`<div class="ex" onclick="dEx(this)"><div>${fmtS(x.s,s)}</div><div class="why">${esc(x.why)}</div></div>`).join('')}</section>`;
+    h+=`<div class="rback two">${pv?`<button class="btn" onclick="relGo('${pv.id}')">‹ ${SK(pv.id).name}</button>`:'<span></span>'}<button class="btn" onclick="relGo(null)">← 回到總覽</button>${nx?`<button class="btn" onclick="relGo('${nx.id}')">${SK(nx.id).name} ›</button>`:'<button class="btn" onclick="relGo(\'drill\')">小練習 ›</button>'}</div>`;
+    return h}
+  let h=`<div class="dintro"><h2>看前後句,只問一個問題:這兩句是什麼關係?</h2>
+  <p>綜合測驗、文意選填、篇章結構、閱讀測驗都適用。</p>
+  <div class="dsteps"><span>① 圈線索詞</span><i>→</i><span>② 判斷關係</span><i>→</i><span>③ 放進去驗證</span></div>
+  </div>
+  <div class="rgrid">${REL.map(relTile).join('')}<button class="rtile drilltile" onclick="relGo('drill')"><span class="npill">小練習</span><span class="tq">這是什麼關係?</span><span class="tmn"><small>共 ${DRILL.length} 題</small>先判斷,再點色塊</span><span class="rdir">練習</span></button></div>
+  <div class="dintro">
+  <p><b>圈的範圍:</b>只圈空格或題目附近的前後一句,不要整篇都圈。</p>
+  <p><b>顏色提醒:</b><span class="rdir flip" style="margin:0 4px">方向改變 · 小心</span>(轉折)、<span class="rdir" style="margin:0 4px">同方向</span>(並列、因果、舉例、時間、換句話說)、<span class="rdir ref" style="margin:0 4px">指代</span>。</p>
+  <div class="dsub">示範:放進去驗證</div>
+  <div class="ex" onclick="dEx(this)"><div>(1) Capsule hotels began in Osaka in 1979.<br>(2) [ 空格 ]<br>(3) [[However]], some guests find the space too small.<br><b>A.</b> They are cheap and convenient for travelers.　<b>B.</b> The rooms look like small tubes.</div><div class="why">後句有 However(轉折),所以空格要先講「正面」的事,選 <b>A</b>。B 只是描述外觀,接不上 However。</div></div>
+  </div>`.replace('[[However]]',`<span class="cue" style="--c:#d97706;--cc:#fcd9a8">However</span>`);
   return h;
 }
 let dState={};
