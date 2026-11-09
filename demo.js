@@ -259,7 +259,7 @@ const ORDER=['先看題目與選項,圈關鍵字。','讀文章,每段看首尾�
 
 /* ============ ③ 六大閱讀能力 ============ */
 const ABIL=[
-{n:'① 主旨判斷',q:'文章在談什麼?作者想說什麼?',tables:[{head:['要找的項目','意思／判斷方式','給學生的任務'],rows:[
+{n:'① 主旨判斷',q:'文章在談什麼?作者想說什麼?',tables:[{head:['要找的項目','意思／判斷方式','練習任務'],rows:[
  ['主題 Topic','全文討論的對象或議題,通常是一個詞或片語。','用一個片語寫出文章在談什麼。'],
  ['核心訊息 Main idea','作者對主題最主要的說明或看法,是完整句子。','作者對這個主題說了什麼?'],
  ['段落大意','每一段各自傳達的重點。','每段寫一句簡短摘要。'],
@@ -267,7 +267,7 @@ const ABIL=[
  ['支持細節','用來解釋主旨的例子、數據、原因等。','哪些內容是在支持重點?'],
  ['主旨範圍','答案是否涵蓋全文,而非過廣或只談一個細節。','這個標題能涵蓋所有段落嗎?']]}],
  fmt:['主題:＿＿＿','作者對主題的核心訊息:＿＿＿','支持這個訊息的兩個細節:＿＿＿、＿＿＿'],tip:'「睡眠」是主題;「睡眠不足會影響青少年的學習」才是核心訊息。'},
-{n:'② 細節理解',q:'文中明確說了哪些資訊?',tables:[{head:['要找的項目','常見內容','給學生的任務'],rows:[
+{n:'② 細節理解',q:'文中明確說了哪些資訊?',tables:[{head:['要找的項目','常見內容','練習任務'],rows:[
  ['人物／對象 Who／What','誰做了什麼、事情涉及哪些對象。','圈出人物或事物,連到其行為。'],
  ['時間／地點 When／Where','日期、時段、地點、事件先後。','標出時間與地點,必要時排順序。'],
  ['原因／目的 Why','為什麼發生、為了達成什麼。','分別找出「原因」與「目的」。'],
@@ -277,7 +277,7 @@ const ABIL=[
  ['指涉對象 Reference','it、they、this、these 等指的是什麼。','用箭頭連回所指的人、事物或概念。'],
  ['同義改寫 Paraphrase','原文與選項用不同文字表達相同意思。','配對原文與選項中的對應表達。']]}],
  fmt:['題目問的是:＿＿＿','原文依據:＿＿＿','選項中的同義表達:＿＿＿'],tip:'原因是「為什麼發生」,目的是「想達成什麼」,兩者不要混在一起。'},
-{n:'③ 推論',q:'文章沒直接說,但能從線索推得什麼?',tables:[{head:['推論類型','要觀察的線索','給學生的任務'],rows:[
+{n:'③ 推論',q:'文章沒直接說,但能從線索推得什麼?',tables:[{head:['推論類型','要觀察的線索','練習任務'],rows:[
  ['人物情緒','動作、表情、說話方式、反應。','他可能有什麼感受?依據在哪裡?'],
  ['人物特質','反覆出現的行為與選擇。','這個行為顯示什麼特質?'],
  ['動機／意圖','行動前後的情境、人物需求。','他為什麼可能這樣做?'],
@@ -286,7 +286,7 @@ const ABIL=[
  ['隱含觀點','用字、例子安排、正負面描述。','作者雖未明說,但傾向支持哪個看法?'],
  ['情境／對象','語氣、資訊種類、專業程度。','這段文字可能寫給誰?出現在哪種場合?']]}],
  fmt:['文中線索:＿＿＿','因此可以推論:＿＿＿','但不能進一步認定:＿＿＿'],tip:'合理推論必須有文本支持,不能只靠常識或想像。例如「他反覆查看時鐘」可能表示他在意時間,但不一定能認定「他討厭這場會議」。'},
-{n:'④ 文意猜字',q:'可以利用哪些線索猜意思?',tables:[{head:['線索類型','常見提示詞／形式','給學生的任務'],rows:[
+{n:'④ 文意猜字',q:'可以利用哪些線索猜意思?',tables:[{head:['線索類型','常見提示詞／形式','練習任務'],rows:[
  ['定義／解釋','means、refers to、is defined as','找出直接解釋字義的部分。'],
  ['換句話說／同義','in other words、that is、同義表達','找出較容易理解的對應說法。'],
  ['對比／反義','but、however、unlike、whereas','找出另一端的意思,再推測目標字。'],
@@ -297,7 +297,7 @@ const ABIL=[
  ['詞性／句型','名詞、動詞、形容詞的位置','先判斷需要哪種詞性,再縮小意思範圍。']]}],
  fmt:['目標字:＿＿＿','線索類型:＿＿＿','我推測的意思:＿＿＿','放回原句後是否合理:＿＿＿'],tip:'不一定要猜出精準的中文翻譯;先判斷大概意思、正負面方向及詞性,就可能足以理解文章。'},
 {n:'⑤ 篇章結構',q:'句子和段落之間有什麼關係?先辨認局部的邏輯關係,再看整篇的組織方式。',tables:[
- {title:'局部:句與句、段與段的關係',head:['邏輯關係','常見提示詞','要學生整理什麼'],rows:[
+ {title:'局部:句與句、段與段的關係',head:['邏輯關係','常見提示詞','要整理什麼'],rows:[
  ['補充／並列','also、in addition、moreover','主要資訊＋新增資訊'],
  ['相似／比較','similarly、likewise、both','A、B 的共同點'],
  ['對比／差異','unlike、whereas、in contrast','A、B 的不同點'],
@@ -310,11 +310,11 @@ const ABIL=[
  ['條件／假設','if、unless、provided that','在什麼條件下,會有什麼結果'],
  ['問題／解決','problem、challenge、solution、address','問題＋解法＋成效'],
  ['總結／結論','overall、in conclusion、in short','前面資訊最後導向什麼重點']]},
- {title:'全文:整篇文章常見的組織方式',head:['組織方式','學生可使用的整理框架'],rows:[
+ {title:'全文:整篇文章常見的組織方式',head:['組織方式','整理框架'],rows:[
  ['描述／分類','主題 → 特徵／種類'],['時間發展／流程','起點 → 發展／步驟 → 結果'],['比較對照','比較項目 → A 的情況／B 的情況'],['因果分析','原因 → 影響'],['問題解決','問題 → 原因 → 解法'],['論點論證','主張 → 理由／證據 → 結論']]}],
- fmt:['備課:今天練哪一種能力? → 挑哪一個分類? → 學生要畫出什麼? → 最後寫出什麼?','例:篇章結構 → 因果 → 畫出原因與結果 → 寫成「因為＿＿＿,所以＿＿＿」。'],tip:'連接詞是線索,真正的關係仍要看句意。例如 however 表示轉折,不代表作者接下來一定反對整篇文章的主張;有些關係也不會明寫連接詞。'},
+ fmt:['整理步驟:選一種能力 → 挑一個分類 → 畫出重點 → 寫出結論。','例:篇章結構 → 因果 → 畫出原因與結果 → 寫成「因為＿＿＿,所以＿＿＿」。'],tip:'連接詞是線索,真正的關係仍要看句意。例如 however 表示轉折,不代表作者接下來一定反對整篇文章的主張;有些關係也不會明寫連接詞。'},
 {n:'⑥ 作者目的與態度',q:'為什麼寫?抱持什麼立場?目的看「作者想達成什麼」,態度看「作者怎麼看待某件事」。',tables:[
- {title:'A. 寫作目的',head:['寫作目的','文章常見特徵','給學生的任務'],rows:[
+ {title:'A. 寫作目的',head:['寫作目的','文章常見特徵','練習任務'],rows:[
  ['告知／介紹 Inform','提供事實、背景、特色。','作者想讓讀者知道什麼?'],
  ['解釋 Explain','說明原理、原因或運作方式。','作者在解釋哪個「為什麼／如何」?'],
  ['描述 Describe','呈現外觀、性質、場景。','作者想讓讀者認識哪些特徵?'],
@@ -364,7 +364,7 @@ function relHtml(){
   <p style="margin:4px 0 8px;font-size:16px">先自己判斷,再點下面的色塊。(第 7、13 題的「關係」就是指代。)</p>
   ${DRILL.map((d,i)=>`<div class="dq" id="dq${i}"><div class="ds"><b>${i+1}.</b> ${esc(d.s)}</div><div class="dopts">${REL.map(r=>{const s=SK(r.id);return `<button class="dopt" data-k="${r.id}" style="background:${s.p};border-color:${s.c}" onclick="drillPick(${i},'${r.id}')">${s.name}</button>`}).join('')}</div><div class="dwhy"></div></div>`).join('')}</section>`;
     return h+back}
-  if(relView==='cues')return back+`<div class="dintro"><h2>線索詞速記:看到字,馬上想到關係</h2><p>① 認讀卡片:每種關係的線索詞放在一起,可以隱藏起來讓學生回想。② 隨機抽問:隨機出一個線索詞,學生說出是哪一種關係。</p><p style="font-size:15px">有些字有兩種用法(例如 while、since),這裡先記最常見的關係,實際判斷還是要看句意。</p></div><div id="cuebox"></div>`+back;
+  if(relView==='cues')return back+`<div class="dintro"><h2>線索詞速記:看到字,馬上想到關係</h2><p>① 認讀卡片:每種關係的線索詞放在一起,可以隱藏起來,自己先回想。② 隨機抽問:隨機出一個線索詞,說出它是哪一種關係。</p><p style="font-size:15px">有些字有兩種用法(例如 while、since),這裡先記最常見的關係,實際判斷還是要看句意。</p></div><div id="cuebox"></div>`+back;
   const r=REL.find(x=>x.id===relView);
   if(r){
     const s=SK(r.id),i=REL.indexOf(r),pv=REL[i-1],nx=REL[i+1];
@@ -423,7 +423,7 @@ function cueRender(){
     const c=cq.cur,done=!!cq.pick||cq.shown,ans=SK(c.id),r=REL.find(x=>x.id===c.id);
     h+=`<div class="cq ${done?'done':''}"><div class="cword">${esc(c.w)}</div>
     <div class="dopts" style="justify-content:center">${REL.map(x=>{const s=SK(x.id);const cls=done?(x.id===c.id?'ok':(x.id===cq.pick?'bad':'')):'';return `<button class="dopt ${cls}" style="background:${s.p};border-color:${s.c}" onclick="cuePick('${x.id}')">${s.name}</button>`}).join('')}</div>
-    <div class="cfb">${done?`${cq.pick?(cq.pick===c.id?'✓ 答對了。':'✗ 答案是「'+ans.name+'」。'):'答案:「'+ans.name+'」。'}口訣:${esc(r.mn)}<br><span class="cwl">${CUEW[c.id].map(esc).join('、')}</span>`:'看到這個字,是哪一種關係?(也可以讓學生口頭回答,再按「顯示答案」)'}</div>
+    <div class="cfb">${done?`${cq.pick?(cq.pick===c.id?'✓ 答對了。':'✗ 答案是「'+ans.name+'」。'):'答案:「'+ans.name+'」。'}口訣:${esc(r.mn)}<br><span class="cwl">${CUEW[c.id].map(esc).join('、')}</span>`:'看到這個字,是哪一種關係?(想好了,可以按「顯示答案」對照)'}</div>
     <div class="cact">${done?'':`<button class="btn" onclick="cueShow()">顯示答案</button>`}<button class="btn go" onclick="cueNext()">下一個 ›</button></div></div>`;
   }
   box.innerHTML=h;
@@ -462,11 +462,11 @@ function qPick(tid,i,j){
 function qReset(id){const b=document.getElementById('qi_'+id);b.classList.remove('done');b.querySelectorAll('.qo').forEach(x=>x.classList.remove('ok','bad'))}
 
 function abHtml(){
-  let h=`<div class="dintro"><h2>六大閱讀能力分類速查表</h2><p>備課時先選一種能力,再挑一個項目,讓學生在文章中找出、標記或分類。這是方便教學的整理架構,不是每篇文章都要找齊所有項目;每堂 15–20 分鐘的閱讀時間,一次挑 1–2 個項目即可。</p></div>`;
+  let h=`<div class="dintro"><h2>六大閱讀能力分類速查表</h2><p>先選一種能力,再挑一個項目,在文章中找出、標記或分類。這是整理閱讀重點的架構,不是每篇文章都要找齊所有項目;一次先練 1–2 個項目就好。</p></div>`;
   ABIL.forEach((a,i)=>{
     h+=`<details class="ab" ${i===0?'open':''}><summary>${a.n}</summary><p class="tq">${esc(a.q)}</p>
     ${a.tables.map(t=>`${t.title?`<div class="dsub">${esc(t.title)}</div>`:''}${tblHtml(t,true)}`).join('')}
-    <div class="dsub">學生整理格式</div><div class="sfmt">${a.fmt.map(esc).join('<br>')}</div>
-    <div class="ttip">💡 教學提醒:${esc(a.tip)}</div></details>`});
+    <div class="dsub">整理格式</div><div class="sfmt">${a.fmt.map(esc).join('<br>')}</div>
+    <div class="ttip">💡 小提醒:${esc(a.tip)}</div></details>`});
   return h;
 }
