@@ -145,7 +145,85 @@ const CF=[
     en:['[[Conservation]] groups are working hard to [[preserve]] this wetland so that migratory birds have a place to live.','[[Conservation]] groups are making efforts to protect the wetland so that migrating birds can have a habitat.'],
     keys:[['保育團體','conservation groups(conserve 的名詞)'],['保護這片濕地(維持原貌)','preserve / protect the wetland'],['讓候鳥有地方棲息','so that migratory birds have a place to live']]}
   ]}
+ ]},
+{id:'cfg1',name:'empty / vacant / hollow / blank / open',type:'語意相近',
+ note:'empty = 裡面沒有東西;vacant = 沒人占用、可使用;hollow = 內部中空;blank = 表面空白;open = 開放、尚可參與。',
+ tip:'',
+ quick:[['容器或空間裡沒東西、沒人','empty'],['座位、房間、職位沒人占用','vacant'],['物體內部是空心的','hollow'],['紙張、表面沒寫字;腦袋一片空白','blank'],['開著、開放、還可以參加','open']],
+ words:[
+  {w:'empty',pos:'adj. / vt.',zh:'空的;倒空',forms:'empty – emptied – emptied(動詞)',
+   core:'容器、房間、街道「裡面沒有東西或沒人」。也可以當動詞「倒空」。引申為「空洞的」:empty promises / empty words。',
+   pats:['an empty bottle 空瓶','on an empty stomach 空腹','empty-handed 空手','empty the trash 倒垃圾','empty promises 空洞的承諾'],
+   ex:[['The glass is [[empty]], so please fill it with water.','杯子空了,請把它裝滿水。'],['The streets were [[empty]] at midnight.','半夜的街道空無一人。']]},
+  {w:'vacant',pos:'adj.',zh:'無人使用的、空缺的',forms:'名詞 vacancy(空房、職缺)',
+   core:'座位、房間、房子、職位「目前沒人占用,可以使用或補人」。重點在「沒人占」,不是「裡面沒東西」。',
+   pats:['a vacant seat 空位','a vacant room / house 空房','a vacant position 職缺','a vacant lot 空地','No Vacancy 客滿'],
+   ex:[['The hospital has no [[vacant]] beds tonight.','醫院今晚沒有空床位。'],['The manager position has been [[vacant]] for months.','經理的職位已經空了好幾個月。']]},
+  {w:'hollow',pos:'adj.',zh:'中空的;空洞的',forms:'名詞 hollow(凹洞、樹洞)',
+   core:'物體「本身的結構是空心的」:樹幹、管子、竹子。引申為「空洞、虛假的」:hollow promises、sound hollow。',
+   pats:['a hollow tree 空心的樹','a hollow tube 空心管','hollow promises 空洞的承諾','sound hollow 聽起來虛假'],
+   ex:[['The old tree trunk is [[hollow]] inside, and a family of owls lives there.','那棵老樹的樹幹裡面是空的,住著一窩貓頭鷹。'],['His apology sounded [[hollow]].','他的道歉聽起來很虛假。']]},
+  {w:'blank',pos:'adj. / n.',zh:'空白的;空格',forms:'名詞 blank(空格)',
+   core:'紙張、表格、螢幕等「表面沒有寫字或內容」。也用在「表情茫然」「腦袋一片空白」。',
+   pats:['a blank page 空白頁','leave… blank 留白','fill in the blanks 填空','a blank look 茫然的表情','my mind went blank 腦袋一片空白'],
+   ex:[['Please leave this page [[blank]] so I can draw on it.','請把這一頁留白,讓我在上面畫畫。'],['My mind went [[blank]] during the exam.','考試時我的腦袋一片空白。']]},
+  {w:'open',pos:'adj.',zh:'開著的、開放的',forms:'動詞 open;形容詞 open',
+   core:'門窗、店家「開著」;場所「對外開放」;報名、職位「還可以參加或應徵」。',
+   pats:['The store is open. 營業中','open to the public 對外開放','Applications are open. 開放報名','an open position 職缺'],
+   ex:[['Applications are still [[open]], so you can apply until Friday.','報名仍在開放中,週五前都可以申請。'],['The museum is [[open]] to the public for free on Sundays.','博物館週日免費對外開放。']]}
+ ],
+ traps:[
+  ['The manager position is empty.','The manager position is [[vacant]] (open).','職位空缺 → vacant / open,不用 empty。'],
+  ['Please fill in the empty.','Please fill in the [[blank]].','名詞「空格」→ blank。'],
+  ['The box is hollow; there is nothing in it.','The box is [[empty]]; there is nothing in it.','箱子裡沒東西 → empty;hollow 是物體本身的結構中空(樹幹、管子)。'],
+  ['My mind became empty during the exam.','My mind went [[blank]] during the exam.','腦袋一片空白 → go blank。']
+ ],
+ mcq:[
+  {q:'The glass is ___, so please fill it with water.',a:'empty',o:['hollow','blank','empty'],zh:'杯子空了,請把它裝滿水。',why:'杯子(容器)裡沒有東西 → empty。'},
+  {q:'The hospital has no ___ beds tonight.',a:'vacant',o:['vacant','hollow','blank'],zh:'醫院今晚沒有空床位。',why:'床位沒人占用、可以使用 → vacant。'},
+  {q:'The old tree trunk is ___ inside, and a family of owls lives there.',a:'hollow',o:['hollow','blank','open'],zh:'那棵老樹的樹幹裡面是空的,住著一窩貓頭鷹。',why:'樹幹本身內部中空 → hollow。'},
+  {q:'Please leave this page ___ so I can draw on it.',a:'blank',o:['vacant','hollow','blank'],zh:'請把這一頁留白,讓我在上面畫畫。',why:'紙張表面沒有寫字 → blank;leave… blank = 留白。'},
+  {q:'Applications are still ___, so you can apply until Friday.',a:'open',o:['hollow','open','blank'],zh:'報名仍在開放中,週五前都可以申請。',why:'報名還可以參加 → open。'},
+  {q:'The position of class leader is still ___; no one has been chosen yet.',a:'vacant',o:['vacant','hollow','blank'],zh:'班長的職位還空著,還沒選出人來。',why:'職位沒人擔任 → vacant。',add:1},
+  {q:'Drinking coffee when your stomach is ___ may make you feel sick.',a:'empty',o:['empty','hollow','vacant'],zh:'空腹喝咖啡可能會讓你不舒服。',why:'胃裡沒有食物 → empty(on an empty stomach = 空腹)。',add:1},
+  {q:'Bamboo stems are ___, so they are light but strong.',a:'hollow',o:['blank','hollow','vacant'],zh:'竹子的莖是中空的,所以又輕又堅固。',why:'竹子本身結構是空心的 → hollow。',add:1},
+  {q:'The new park will be ___ to the public next month.',a:'open',o:['empty','vacant','open'],zh:'新公園下個月將對外開放。',why:'對外開放 → be open to the public。',add:1}
+ ],
+ tr:[
+  {topic:'職缺與報名',items:[
+   {zh:'這家公司的經理職位已經空了好幾個月,至今仍找不到合適的人選。',
+    en:['The manager position at this company has been [[vacant]] for several months, and they still haven\'t found a suitable candidate.','The company\'s manager position has remained [[vacant]] for months, and no suitable person has been found so far.'],
+    keys:[['職位空著','be vacant / remain vacant'],['已經空了好幾個月','has been vacant for several months(現在完成式)'],['合適的人選','a suitable candidate']]},
+   {zh:'夏令營的報名仍在開放中,有興趣的同學可以在週五前上網報名。',
+    en:['Registration for the summer camp is still [[open]], so interested students can sign up online before Friday.','The summer camp is still [[open]] for registration; students who are interested may apply online by Friday.'],
+    keys:[['報名仍在開放中','registration is still open'],['有興趣的同學','interested students / students who are interested'],['上網報名','sign up online / apply online']]}
+  ]},
+  {topic:'空屋與空街',items:[
+   {zh:'由於人口外移,這個小鎮上有許多房子都空著沒人住。',
+    en:['Because many people have moved away, a lot of houses in this small town are [[vacant]].','Due to population outflow, many houses in the small town have been left [[vacant]].','As many residents have left, plenty of houses in this town now stand [[empty]].'],
+    keys:[['人口外移','many people have moved away / population outflow'],['空著沒人住','be vacant / be left vacant / stand empty']]},
+   {zh:'疫情期間,原本熱鬧的街道變得空蕩蕩的,幾乎看不到行人。',
+    en:['During the pandemic, the once busy streets became [[empty]], and there were hardly any pedestrians.','During the pandemic, the streets that used to be lively were [[empty]], with almost no one walking around.'],
+    keys:[['原本熱鬧的街道','the once busy streets / the streets that used to be lively'],['變得空蕩蕩的','became empty'],['幾乎看不到行人','there were hardly any pedestrians / almost no one walking around']]}
+  ]},
+  {topic:'考試',items:[
+   {zh:'考試一開始,我的腦袋就一片空白,連最簡單的題目都不會寫。',
+    en:['As soon as the exam started, my mind went [[blank]], and I couldn\'t even answer the easiest questions.','The moment the test began, my mind went [[blank]], so I couldn\'t answer even the simplest questions.'],
+    keys:[['一…就…','as soon as… / the moment…'],['腦袋一片空白','my mind went blank'],['連…都不會','couldn\'t even…']]},
+   {zh:'老師提醒我們,答案卷上不要留下任何空白。',
+    en:['The teacher reminded us not to leave any part of the answer sheet [[blank]].','Our teacher reminded us not to leave any [[blanks]] on the answer sheet.'],
+    keys:[['提醒某人不要…','remind sb. not to V'],['留下空白','leave… blank / leave blanks']]}
+  ]},
+  {topic:'老樹與承諾',items:[
+   {zh:'這棵老樹的樹幹是中空的,裡面住著一窩松鼠。',
+    en:['The trunk of this old tree is [[hollow]], and a family of squirrels lives inside it.','This old tree has a [[hollow]] trunk, in which a family of squirrels lives.'],
+    keys:[['樹幹是中空的','the trunk is hollow / a hollow trunk'],['住著一窩松鼠','a family of squirrels lives inside']]},
+   {zh:'許多人在新年時許下承諾,但這些承諾往往很快就成了空話。',
+    en:['Many people make promises at New Year, but these promises often soon turn out to be [[empty]] words.','A lot of people make New Year\'s promises, which often prove [[hollow]] before long.'],
+    keys:[['許下承諾','make promises / make New Year\'s resolutions'],['成了空話','turn out to be empty words / prove hollow'],['很快就','soon / before long']]}
+  ]}
  ]}
+
 ];
 
 /* ============ render ============ */
