@@ -222,6 +222,78 @@ const CF=[
     en:['Many people make promises at New Year, but these promises often soon turn out to be [[empty]] words.','A lot of people make New Year\'s promises, which often prove [[hollow]] before long.'],
     keys:[['許下承諾','make promises / make New Year\'s resolutions'],['成了空話','turn out to be empty words / prove hollow'],['很快就','soon / before long']]}
   ]}
+ ]},
+{id:'cfg173',name:'compose / comprise / consist / constitute',type:'語意相近',
+ note:'be composed of = consist of = comprise;constitute = 構成整體的一部分。注意主詞方向:全體 comprises 部分;部分 constitute 全體。',
+ tip:'全體在前:composed of / consist of / comprise;部分在前:constitute',
+ quick:[['全體 + is composed of + 部分(被動)','be composed of'],['全體 + consists of + 部分(不能用被動)','consist of'],['全體 + comprises + 部分(不加 of)','comprise'],['部分 + constitute + 全體','constitute'],['寫音樂、作曲','compose']],
+ words:[
+  {w:'compose',pos:'vt.',zh:'組成;作曲',forms:'名詞 composition;composer(作曲家)',
+   core:'表示「組成」時多用被動:全體 + be composed of + 部分。另一個常見意思是「作曲、寫詩」。',
+   pats:['be composed of… 由…組成','compose music / a song 作曲','compose a poem 寫詩'],
+   ex:[['Water is [[composed]] of hydrogen and oxygen.','水由氫和氧組成。'],['The young artist wants to [[compose]] a song for his mother.','這位年輕藝術家想為母親寫一首歌。']]},
+  {w:'comprise',pos:'vt.',zh:'包含、由…組成',forms:'comprise – comprised – comprised',
+   core:'全體 + comprise + 部分,後面直接接受詞,不加 of。(be comprised of 雖然常見,但有爭議;寫作和考試用 comprise、consist of 或 be composed of 比較保險。)',
+   pats:['A comprises B A 包含 B','comprise ten lessons 包含十堂課'],
+   ex:[['The course will [[comprise]] ten lessons.','這門課程將包含十堂課。'],['The committee [[comprises]] seven members.','委員會由七位成員組成。']]},
+  {w:'consist',pos:'vi.',zh:'由…構成;在於',forms:'consist – consisted – consisted',
+   core:'不及物動詞:全體 + consist of + 部分。不能用被動(✗ is consisted of),也很少用進行式。consist in = 在於。',
+   pats:['consist of… 由…組成','consist mainly of… 主要由…組成','consist in… 在於…'],
+   ex:[['A basketball team must [[consist]] of five players.','一支籃球隊必須由五名球員組成。'],['Happiness [[consists]] in being content.','幸福在於知足。']]},
+  {w:'constitute',pos:'vt.',zh:'構成;占',forms:'名詞 constitution(憲法;體質)',
+   core:'方向和其他三個相反:部分 + constitute + 全體。也常用來表示「構成(問題、威脅、犯罪)」。',
+   pats:['constitute half of… 占…的一半','constitute a threat 構成威脅','constitute a crime 構成犯罪'],
+   ex:[['Women [[constitute]] about half of the workforce.','女性約占勞動人口的一半。'],['Spreading false information may [[constitute]] a crime.','散播假消息可能構成犯罪。']]}
+ ],
+ traps:[
+  ['The team is consisted of five players.','The team [[consists]] of five players.','consist 是不及物動詞,沒有被動。'],
+  ['The team comprises of five players.','The team [[comprises]] five players.','comprise 後面直接接受詞,不加 of。'],
+  ['The committee composes of seven members.','The committee is [[composed]] of seven members.','表示「由…組成」要用被動 be composed of。'],
+  ['A team constitutes five players.','Five players [[constitute]] a team.','constitute 的主詞是「部分」,受詞是「全體」。']
+ ],
+ mcq:[
+  {q:'The young artist wants to ___ a song for his mother.',a:'compose',o:['comprise','consist','compose','constitute'],zh:'這位年輕藝術家想為母親寫一首歌。',why:'作曲 → compose a song。'},
+  {q:'The course will ___ ten lessons.',a:'comprise',o:['constitute','consist','comprise','compose'],zh:'這門課程將包含十堂課。',why:'全體(course)+ comprise + 部分,不加 of。'},
+  {q:'A basketball team must ___ of five players.',a:'consist',o:['constitute','compose','comprise','consist'],zh:'一支籃球隊必須由五名球員組成。',why:'空格後有 of → consist of。'},
+  {q:'Women ___ about half of the workforce.',a:'constitute',o:['constitute','comprise','consist'],zh:'女性約占勞動人口的一半。',why:'部分(women)+ constitute + 全體。'},
+  {q:'Water is ___ of hydrogen and oxygen.',a:'composed',o:['consisted','composed','constituted'],zh:'水由氫和氧組成。',why:'be composed of = 由…組成;consist 不能用被動。',add:1},
+  {q:'The exam ___ of two parts: reading and writing.',a:'consists',o:['comprises','constitutes','consists'],zh:'這份考試由兩部分組成:閱讀和寫作。',why:'空格後有 of,而且是主動 → consists of;comprise 不加 of。',add:1},
+  {q:'Students under 18 ___ 70% of the club\'s members.',a:'constitute',o:['consist','constitute','are composed'],zh:'未滿十八歲的學生占這個社團成員的七成。',why:'部分(students under 18)+ constitute + 全體。',add:1},
+  {q:'Mozart began to ___ music when he was only five.',a:'compose',o:['constitute','comprise','compose'],zh:'莫札特五歲就開始作曲。',why:'作曲 → compose music。',add:1}
+ ],
+ tr:[
+  {topic:'班級與樂團',items:[
+   {zh:'我們班由三十二位學生組成,其中女生約占一半。',
+    en:['Our class [[consists]] of thirty-two students, about half of whom are girls.','Our class is [[composed]] of 32 students, and girls [[constitute]] about half of them.','Our class [[comprises]] thirty-two students, and about half of them are girls.'],
+    keys:[['由…組成','consist of / be composed of / comprise'],['其中女生約占一半','about half of whom are girls / girls constitute about half of them']]},
+   {zh:'這個樂團由四位高中生組成,所有的歌曲都是他們自己創作的。',
+    en:['The band [[consists]] of four high school students, and they [[composed]] all of their songs themselves.','The band is [[composed]] of four high school students, who wrote all the songs by themselves.'],
+    keys:[['由…組成','consist of / be composed of'],['自己創作歌曲','compose / write the songs themselves']]}
+  ]},
+  {topic:'飲食與健康',items:[
+   {zh:'均衡的飲食應該包含蔬菜、水果、蛋白質和全穀類。',
+    en:['A balanced diet should [[consist]] of vegetables, fruit, protein, and whole grains.','A balanced diet should [[comprise]] vegetables, fruit, protein, and whole grains.'],
+    keys:[['均衡的飲食','a balanced diet'],['應該包含','should consist of / should comprise / should include']]},
+   {zh:'水約占人體重量的百分之六十。',
+    en:['Water [[constitutes]] about 60 percent of the human body\'s weight.','About 60% of the weight of the human body is water, which [[constitutes]] the largest part of it.','Water accounts for roughly 60 percent of human body weight.'],
+    keys:[['約占…的百分之六十','constitute / account for about 60 percent of'],['人體重量','the human body\'s weight / human body weight']]}
+  ]},
+  {topic:'考試',items:[
+   {zh:'學測英文考科包含選擇題和非選擇題兩大部分。',
+    en:['The GSAT English test [[consists]] of two main parts: multiple-choice questions and non-multiple-choice questions.','The English section of the GSAT is [[composed]] of two major parts: multiple-choice and non-multiple-choice questions.'],
+    keys:[['包含兩大部分','consist of two main parts / be composed of two major parts'],['選擇題、非選擇題','multiple-choice questions / non-multiple-choice questions']]},
+   {zh:'對許多學生來說,翻譯和作文構成了最大的挑戰。',
+    en:['For many students, translation and composition [[constitute]] the biggest challenge.','Translation and essay writing [[constitute]] the greatest challenge for many students.'],
+    keys:[['對許多學生來說','for many students'],['構成最大的挑戰','constitute the biggest challenge(部分 + constitute)']]}
+  ]},
+  {topic:'組織與法律',items:[
+   {zh:'學生會由七位成員組成,其中包括兩位高一代表。',
+    en:['The student council [[comprises]] seven members, including two representatives from the first-year class.','The student council is [[composed]] of seven members, two of whom represent the first-year students.'],
+    keys:[['由七位成員組成','comprise seven members / be composed of seven members'],['其中包括…','including… / two of whom…']]},
+   {zh:'在網路上散播假消息可能構成犯罪。',
+    en:['Spreading false information online may [[constitute]] a crime.','Spreading fake news on the Internet could [[constitute]] a criminal offense.'],
+    keys:[['散播假消息','spread false information / fake news'],['可能構成犯罪','may constitute a crime']]}
+  ]}
  ]}
 
 ];
