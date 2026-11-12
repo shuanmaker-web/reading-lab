@@ -294,6 +294,79 @@ const CF=[
     en:['Spreading false information online may [[constitute]] a crime.','Spreading fake news on the Internet could [[constitute]] a criminal offense.'],
     keys:[['散播假消息','spread false information / fake news'],['可能構成犯罪','may constitute a crime']]}
   ]}
+ ]},
+{id:'cfg92',name:'consider / regard / view / treat',type:'語意相近',
+ note:'consider A (as) B;regard A as B;view A as B;treat A as B(對待,不是「認為」)。',
+ tip:'consider 可省 as;regard / view 一定要 as;treat 是「做出來的對待」',
+ quick:[['考慮要不要做某事','consider + V-ing'],['認為 A 是 B(as 可省)','consider A (to be) B'],['把 A 視為 B(as 不能省)','regard / view A as B'],['實際上把 A 當 B 來對待','treat A as / like B'],['治療病人、疾病','treat']],
+ words:[
+  {w:'consider',pos:'vt.',zh:'考慮;認為',forms:'名詞 consideration',
+   core:'① 考慮:consider + N / V-ing(不接 to V)。② 認為:consider A (to be) B,as 通常省略;consider it + adj. + to V。',
+   pats:['consider + V-ing 考慮做…','consider A (to be) B 認為 A 是 B','be considered (to be)… 被認為是…','consider it important to V 認為…很重要','take… into consideration 把…納入考量'],
+   ex:[['I need to [[consider]] your offer carefully before I decide.','做決定之前,我得仔細考慮你的提議。'],['Many people [[consider]] him the best player in the league.','很多人認為他是聯盟裡最好的球員。']]},
+  {w:'regard',pos:'vt. / n.',zh:'視為;關心、問候',forms:'名詞 regard;regards(問候)',
+   core:'regard A as B,as 不能省;被動 be regarded as。regard… highly = 高度評價。名詞:give my regards to… = 代我問候;with regard to… = 關於。',
+   pats:['regard A as B 把 A 視為 B','be regarded as… 被視為…','regard… highly 高度評價','give my regards to… 代我問候','with regard to… 關於'],
+   ex:[['Her teachers [[regard]] her highly because she works so hard.','她很用功,所以老師們對她評價很高。'],['Many people [[regard]] failure as a chance to learn.','許多人把失敗視為學習的機會。']]},
+  {w:'view',pos:'vt. / n.',zh:'看待;看法',forms:'名詞 view(看法、景色)',
+   core:'view A as B,as 不能省;多半帶有「從某個角度看」的意味。名詞:in my view = 依我看;point of view = 觀點。',
+   pats:['view A as B 把 A 看作 B','view… from a different angle 從不同角度看…','in my view 依我看','point of view 觀點'],
+   ex:[['Different cultures [[view]] the same event from different angles.','不同的文化會從不同的角度看待同一件事。'],['Some people [[view]] AI as a threat.','有些人把人工智慧看作一種威脅。']]},
+  {w:'treat',pos:'vt. / n.',zh:'對待;治療;請客',forms:'名詞 treatment(治療、待遇);treat(請客)',
+   core:'treat A as / like B 是「實際上用某種方式對待」,不是「心裡認為」。另有「治療」與「請客」的意思。',
+   pats:['treat A as / like B 把 A 當 B 對待','treat sb. well / badly 善待/虧待某人','treat a disease / patient 治療疾病/病人','It\'s my treat. 我請客'],
+   ex:[['The doctor will [[treat]] your cough with medicine.','醫生會用藥治療你的咳嗽。'],['My parents still [[treat]] me like a child.','我爸媽還是把我當小孩看待。']]}
+ ],
+ traps:[
+  ['I regard him a genius.','I [[regard]] him as a genius. / I [[consider]] him a genius.','regard A as B 的 as 不能省;要省 as 只能用 consider。'],
+  ['I am considering to study abroad.','I am [[considering]] studying abroad.','consider 後面接 V-ing,不接 to V。'],
+  ['My parents still regard me like a child.','My parents still [[treat]] me like a child.','說的是實際上「怎麼對待」→ treat;regard 是心裡「怎麼看」。'],
+  ['She is regarded one of the best singers.','She is [[regarded]] as one of the best singers.','被動也要有 as:be regarded as;be considered 則可以直接接名詞。']
+ ],
+ mcq:[
+  {q:'I need to ___ your offer carefully before I decide.',a:'consider',o:['treat','regard','consider','view'],zh:'做決定之前,我得仔細考慮你的提議。',why:'考慮 → consider。'},
+  {q:'Her teachers ___ her highly because she works so hard.',a:'regard',o:['view','consider','regard','treat'],zh:'她很用功,所以老師們對她評價很高。',why:'regard… highly = 高度評價。'},
+  {q:'Different cultures ___ the same event from different angles.',a:'view',o:['consider','regard','treat','view'],zh:'不同的文化會從不同的角度看待同一件事。',why:'從某個角度看待 → view… from… angle。'},
+  {q:'The doctor will ___ your cough with medicine.',a:'treat',o:['view','consider','treat','regard'],zh:'醫生會用藥治療你的咳嗽。',why:'治療 → treat。'},
+  {q:'Many people ___ him the best player in the league.',a:'consider',o:['regard','consider','view'],zh:'很多人認為他是聯盟裡最好的球員。',why:'句中沒有 as → 只能用 consider A B;regard / view 一定要 as。',add:1},
+  {q:'We are ___ moving to Taichung next year.',a:'considering',o:['regarding','viewing','considering','treating'],zh:'我們正在考慮明年搬到台中。',why:'考慮做某事 → consider + V-ing。',add:1},
+  {q:'Please give my ___ to your parents.',a:'regards',o:['views','regards','treats'],zh:'請代我向你父母問好。',why:'give my regards to… = 代我問候。',add:1},
+  {q:'In my ___, students should have more time to sleep.',a:'view',o:['regard','treat','view'],zh:'依我看,學生應該有更多時間睡覺。',why:'in my view = 依我看。',add:1},
+  {q:'The restaurant staff ___ every customer like a VIP.',a:'treat',o:['consider','treat','regard','view'],zh:'這家餐廳的員工把每位客人都當作貴賓來對待。',why:'實際上怎麼對待 → treat A like B。',add:1}
+ ],
+ tr:[
+  {topic:'升學與態度',items:[
+   {zh:'我正在考慮出國念書,但我的父母認為留在台灣比較好。',
+    en:['I\'m [[considering]] studying abroad, but my parents [[consider]] it better for me to stay in Taiwan.','I am [[considering]] going abroad to study, but my parents think it would be better for me to stay in Taiwan.'],
+    keys:[['正在考慮出國念書','be considering studying abroad(consider + V-ing)'],['認為…比較好','consider it better to V / think it would be better to V']]},
+   {zh:'許多人把失敗視為學習的機會,而不是一種恥辱。',
+    en:['Many people [[regard]] failure as an opportunity to learn rather than a disgrace.','Many people [[view]] failure as a chance to learn, not as something to be ashamed of.'],
+    keys:[['把…視為…','regard / view A as B(as 不能省)'],['而不是…','rather than… / not…']]}
+  ]},
+  {topic:'家庭',items:[
+   {zh:'雖然我已經十八歲了,我爸媽還是把我當小孩看待。',
+    en:['Although I am already eighteen, my parents still [[treat]] me like a child.','Even though I\'m 18 years old, my parents still [[treat]] me as a kid.'],
+    keys:[['雖然…(不再加 but)','although / even though'],['把我當小孩看待','treat me like / as a child']]},
+   {zh:'在台灣,孝順父母被認為是一種重要的美德。',
+    en:['In Taiwan, being filial to one\'s parents is [[considered]] an important virtue.','In Taiwan, respecting and caring for one\'s parents is [[regarded]] as an important virtue.'],
+    keys:[['孝順父母','be filial to one\'s parents / respect and care for one\'s parents'],['被認為是…','be considered (to be)… / be regarded as…']]}
+  ]},
+  {topic:'科技與決定',items:[
+   {zh:'有些人將人工智慧視為威脅,有些人則認為它是有用的工具。',
+    en:['Some people [[view]] artificial intelligence as a threat, while others [[consider]] it a useful tool.','Some people [[regard]] AI as a threat, whereas others see it as a helpful tool.'],
+    keys:[['有些人…有些人則…','some people… while / whereas others…'],['將…視為威脅','view / regard… as a threat'],['認為它是有用的工具','consider it a useful tool']]},
+   {zh:'做決定之前,我們應該把每個人的意見都納入考量。',
+    en:['Before making a decision, we should take everyone\'s opinions into [[consideration]].','We should [[consider]] everyone\'s opinions before we make a decision.'],
+    keys:[['做決定','make a decision'],['納入考量','take… into consideration / consider']]}
+  ]},
+  {topic:'醫療與服務',items:[
+   {zh:'這位醫生用新的方法治療病人,獲得了很好的成效。',
+    en:['The doctor [[treated]] the patients with a new method and achieved very good results.','Using a new method to [[treat]] patients, the doctor has achieved great success.'],
+    keys:[['用…治療病人','treat patients with…'],['獲得很好的成效','achieve very good results / achieve great success']]},
+   {zh:'這家飯店把每位房客都當作貴賓一樣接待,因此被視為全市最好的飯店之一。',
+    en:['This hotel [[treats]] every guest like a VIP, so it is [[regarded]] as one of the best hotels in the city.','Because it [[treats]] all its guests as VIPs, the hotel is [[considered]] one of the best in the city.'],
+    keys:[['把…當作貴賓接待','treat… like / as a VIP'],['被視為…之一','be regarded as one of… / be considered (to be) one of…']]}
+  ]}
  ]}
 
 ];
