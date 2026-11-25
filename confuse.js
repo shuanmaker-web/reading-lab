@@ -445,6 +445,400 @@ const CF=[
     en:['Construction of the new MRT line is in [[progress]] and is expected to be completed next year.','The city is in the [[process]] of building a new MRT line, which is expected to be finished next year.'],
     keys:[['正在進行中','be in progress / be in the process of + V-ing'],['預計明年完工','be expected to be completed next year']]}
   ]}
+ ]},
+
+{id:'cfg21',name:'sensible / sensitive',type:'拼字相近',
+ note:'sensible = 明智的、合理的;sensitive = 敏感的、易受影響的。',
+ tip:'sensible = sense(判斷力)+ -ible → 有判斷力、明智;sensitive = 感覺很靈敏 → 敏感',
+ quick:[['做法、決定合理、明智','sensible'],['對…很敏感、容易受影響(be sensitive to)','sensitive'],['話題、議題敏感,要小心處理','sensitive']],
+ words:[
+  {w:'sensible',pos:'adj.',zh:'明智的、合理的;(衣鞋)實用的',forms:'n. sense(判斷力);adv. sensibly',
+   core:'形容人或決定「有判斷力、合理」:It is sensible to V。也可形容衣服、鞋子實用、不花俏。',
+   pats:['a sensible decision 明智的決定','It is sensible to V …是明智的','sensible advice 合理的建議','sensible shoes 實穿的鞋子'],
+   ex:[['It is [[sensible]] to take an umbrella when the sky is full of dark clouds.','天空佈滿烏雲時,帶把傘是明智的。'],['He made a [[sensible]] decision and saved some of his allowance.','他做了明智的決定,存下一些零用錢。']]},
+  {w:'sensitive',pos:'adj.',zh:'敏感的、易受影響的;能體察他人感受的',forms:'n. sensitivity;反義 insensitive(不體貼的、遲鈍的)',
+   core:'「對…反應很強」:be sensitive to + N。可形容皮膚、情緒、話題(敏感議題);be sensitive to others\' feelings = 能體察別人的感受。',
+   pats:['be sensitive to the sun / light 對陽光/光線敏感','be sensitive to criticism 對批評很敏感','a sensitive topic / issue 敏感的話題','be sensitive to others\' feelings 能體察別人的感受'],
+   ex:[['She is very [[sensitive]] to criticism and cries easily.','她對批評很敏感,很容易哭。'],['My skin is [[sensitive]] to the sun, so I use sunscreen every day.','我的皮膚對陽光很敏感,所以每天都擦防曬。']]}
+ ],
+ traps:[
+  ['Leaving before the storm was a sensitive decision.','Leaving before the storm was a [[sensible]] decision.','決定「明智、合理」→ sensible。'],
+  ['My eyes are very sensible to light.','My eyes are very [[sensitive]] to light.','對…敏感 → be sensitive to。'],
+  ['Politics is a sensible topic in my family.','Politics is a [[sensitive]] topic in my family.','話題「敏感、要小心處理」→ sensitive。']
+ ],
+ mcq:[
+  {q:'It is ___ to take an umbrella when the sky is full of dark clouds.',a:'sensible',o:['sensible','sensitive'],zh:'天空佈滿烏雲時,帶把傘是明智的。',why:'做法明智、合理 → sensible。'},
+  {q:'She is very ___ to criticism and cries easily.',a:'sensitive',o:['sensible','sensitive'],zh:'她對批評很敏感,很容易哭。',why:'be sensitive to… = 對…很敏感。'},
+  {q:'My skin is ___ to the sun, so I use sunscreen every day.',a:'sensitive',o:['sensitive','sensible'],zh:'我的皮膚對陽光很敏感,所以每天都擦防曬。',why:'皮膚對陽光敏感 → be sensitive to。'},
+  {q:'He made a ___ decision and saved some of his allowance.',a:'sensible',o:['sensible','sensitive'],zh:'他做了明智的決定,存下一些零用錢。',why:'明智的決定 → a sensible decision。'},
+  {q:'Wearing ___ shoes is important if you are going hiking.',a:'sensible',o:['sensitive','sensible'],zh:'如果要去健行,穿實用的鞋子很重要。',why:'sensible shoes = 實穿、適合的鞋子。',add:1},
+  {q:'Good teachers are ___ to their students\' feelings.',a:'sensitive',o:['sensible','sensitive'],zh:'好老師能體察學生的感受。',why:'be sensitive to others\' feelings = 能體察別人的感受。',add:1},
+  {q:'Age is a ___ subject for some people, so don\'t ask.',a:'sensitive',o:['sensitive','sensible'],zh:'年齡對某些人來說是敏感話題,所以別問。',why:'敏感話題 → a sensitive subject。',add:1},
+  {q:'It would be ___ to book the tickets early.',a:'sensible',o:['sensible','sensitive'],zh:'早點訂票會是明智之舉。',why:'It would be sensible to V = …是明智的。',add:1}
+ ],
+ tr:[
+  {topic:'健康與天氣',items:[
+   {zh:'我的皮膚對陽光很敏感,所以夏天出門一定會擦防曬乳。',
+    en:['My skin is very [[sensitive]] to the sun, so I always put on sunscreen before going out in summer.','Because my skin is [[sensitive]] to sunlight, I never go out in summer without wearing sunscreen.'],
+    keys:[['對陽光很敏感','be sensitive to the sun / sunlight'],['擦防曬乳','put on / wear sunscreen']]},
+   {zh:'看到滿天烏雲,出門帶把傘是明智的做法。',
+    en:['When the sky is full of dark clouds, it is [[sensible]] to take an umbrella with you.','If the sky is covered with dark clouds, the [[sensible]] thing to do is (to) take an umbrella.'],
+    keys:[['…是明智的','it is sensible to V / the sensible thing to do is (to) V'],['滿天烏雲','the sky is full of / covered with dark clouds']]}
+  ]},
+  {topic:'人際相處',items:[
+   {zh:'和人相處時,我們應該體察別人的感受,避免談論敏感的話題。',
+    en:['When getting along with others, we should be [[sensitive]] to their feelings and avoid talking about [[sensitive]] topics.','In dealing with people, we should pay attention to their feelings and avoid [[sensitive]] subjects.'],
+    keys:[['體察別人的感受','be sensitive to others\' feelings'],['避免談論…','avoid + V-ing / N']]},
+   {zh:'與其和父母爭吵,比較明智的做法是冷靜地溝通。',
+    en:['Instead of quarreling with your parents, it is more [[sensible]] to communicate with them calmly.','Rather than argue with your parents, the more [[sensible]] thing to do is to talk with them calmly.'],
+    keys:[['與其…','instead of + V-ing / rather than + V'],['比較明智的做法','it is more sensible to V / the more sensible thing to do']]}
+  ]},
+  {topic:'金錢',items:[
+   {zh:'他做了明智的決定,把一半的零用錢存起來。',
+    en:['He made a [[sensible]] decision to save half of his allowance.','He [[sensibly]] decided to put half of his pocket money aside.'],
+    keys:[['做了明智的決定','make a sensible decision to V'],['存起來','save / put aside']]},
+   {zh:'有些人對錢的話題很敏感,所以最好不要問別人的薪水。',
+    en:['Some people are [[sensitive]] about money, so it is better not to ask others how much they earn.','Since money is a [[sensitive]] topic for some people, you had better not ask about others\' salaries.'],
+    keys:[['對…很敏感(心理上在意)','be sensitive about…'],['最好不要…','it is better not to V / had better not V']]}
+  ]}
+ ]},
+
+{id:'cfg22',name:'considerate / considerable',type:'拼字相近',
+ note:'considerate = 體貼的(對人);considerable = 相當大的、可觀的。',
+ tip:'considerate 形容「人」:體貼;considerable 形容「數量、程度」:相當大',
+ quick:[['形容人或行為:體貼、為別人著想','considerate'],['形容數量、程度、金額:相當大、可觀','considerable'],['修飾動詞或比較級:相當地、大幅地','considerably']],
+ words:[
+  {w:'considerate',pos:'adj.',zh:'體貼的、為人著想的',forms:'adv. considerately;反義 inconsiderate',
+   core:'形容人或行為「會考慮別人的感受」。稱讚人用 It is considerate of sb. to V(用 of);be considerate of / toward(s) sb.。',
+   pats:['It is considerate of you to V 你…真體貼','be considerate of others 為別人著想','a considerate neighbor 體貼的鄰居','inconsiderate behavior 不顧他人的行為'],
+   ex:[['It was very [[considerate]] of you to call and ask how I was.','你打電話來問我好不好,真是太體貼了。'],['A [[considerate]] neighbor never plays loud music late at night.','體貼的鄰居不會在深夜大聲放音樂。']]},
+  {w:'considerable',pos:'adj.',zh:'相當大的、可觀的',forms:'adv. considerably(相當地)',
+   core:'形容數量、金額、程度、時間「很大、不少」,常搭 amount、damage、time、money、effort。副詞 considerably 可修飾比較級:considerably better。',
+   pats:['a considerable amount of time 相當多的時間','considerable damage 相當大的損害','at considerable cost 付出很大代價','considerably higher 高出許多'],
+   ex:[['The storm caused [[considerable]] damage to the town.','暴風雨對小鎮造成了相當大的損害。'],['It took a [[considerable]] amount of time to finish the project.','完成這個專案花了相當多的時間。']]}
+ ],
+ traps:[
+  ['It was very considerable of you to help me.','It was very [[considerate]] of you to help me.','稱讚人體貼 → It is considerate of sb. to V。'],
+  ['The fire caused considerate damage.','The fire caused [[considerable]] damage.','損害「很大」→ considerable。'],
+  ['Prices this year are considerable higher.','Prices this year are [[considerably]] higher.','修飾比較級要用副詞 considerably。']
+ ],
+ mcq:[
+  {q:'It was very ___ of you to call and ask how I was.',a:'considerate',o:['considerable','considerate'],zh:'你打電話來問我好不好,真是太體貼了。',why:'It is considerate of sb. to V = 某人…真體貼。'},
+  {q:'The storm caused ___ damage to the town.',a:'considerable',o:['considerable','considerate'],zh:'暴風雨對小鎮造成了相當大的損害。',why:'損害很大 → considerable damage。'},
+  {q:'It took a ___ amount of time to finish the project.',a:'considerable',o:['considerate','considerable'],zh:'完成這個專案花了相當多的時間。',why:'a considerable amount of… = 相當多的…。'},
+  {q:'A ___ neighbor never plays loud music late at night.',a:'considerate',o:['considerable','considerate'],zh:'體貼的鄰居不會在深夜大聲放音樂。',why:'形容人體貼 → considerate。'},
+  {q:'Building the bridge cost a ___ sum of money.',a:'considerable',o:['considerate','considerable'],zh:'建這座橋花了一大筆錢。',why:'金額可觀 → a considerable sum。',add:1},
+  {q:'It was ___ of him to give up his seat to the old lady.',a:'considerate',o:['considerate','considerable'],zh:'他把座位讓給老太太,真是體貼。',why:'It is considerate of sb. to V。',add:1},
+  {q:'The new phone is ___ faster than the old one.',a:'considerably',o:['considerate','considerable','considerably','considerately'],zh:'新手機比舊的快得多。',why:'修飾比較級 faster → 副詞 considerably。',add:1},
+  {q:'Please be ___ of others and keep your voice down in the library.',a:'considerate',o:['considerable','considerate'],zh:'在圖書館請為他人著想,降低音量。',why:'be considerate of others = 為別人著想。',add:1}
+ ],
+ tr:[
+  {topic:'人際相處',items:[
+   {zh:'你特地打電話來關心我,真是太體貼了。',
+    en:['It was really [[considerate]] of you to call and ask how I was.','How [[considerate]] of you to call just to see how I was doing!'],
+    keys:[['你…真是太體貼了','It is considerate of you to V(用 of)'],['關心我','ask how I was / see how I was doing']]},
+   {zh:'在公共場所講手機時,我們應該為他人著想,降低音量。',
+    en:['When talking on the phone in public places, we should be [[considerate]] of others and lower our voices.','We should be [[considerate]] of other people and keep our voices down when we talk on our cell phones in public.'],
+    keys:[['為他人著想','be considerate of others'],['降低音量','lower one\'s voice / keep one\'s voice down']]}
+  ]},
+  {topic:'災害與建設',items:[
+   {zh:'這場颱風對農作物造成了相當大的損害。',
+    en:['The typhoon caused [[considerable]] damage to the crops.','The crops suffered [[considerable]] damage from the typhoon.'],
+    keys:[['對…造成損害','cause damage to…(damage 不可數)'],['相當大的','considerable']]},
+   {zh:'興建這座博物館花了相當多的時間和金錢。',
+    en:['It took a [[considerable]] amount of time and money to build the museum.','Building the museum required a [[considerable]] amount of time and money.'],
+    keys:[['花了…時間和金錢','it took… to V / require…'],['相當多的','a considerable amount of…']]}
+  ]},
+  {topic:'改變與成長',items:[
+   {zh:'自從搬到鄉下後,他的健康狀況已經大幅改善。',
+    en:['Since he moved to the countryside, his health has improved [[considerably]].','His health has become [[considerably]] better since he moved to the country.'],
+    keys:[['自從…之後','since + 過去式,主要子句用現在完成式'],['大幅改善','improve considerably / become considerably better']]},
+   {zh:'網路購物在過去十年中有相當大的成長。',
+    en:['Online shopping has grown [[considerably]] over the past ten years.','There has been [[considerable]] growth in online shopping in the past decade.'],
+    keys:[['在過去十年中','over / in the past ten years(現在完成式)'],['相當大的成長','grow considerably / considerable growth']]}
+  ]}
+ ]},
+
+{id:'cfg61',name:'economic / economical',type:'拼字相近',
+ note:'economic 和「經濟」(economy)有關;economical 指花費少、省錢、有效率。',
+ tip:'economic → economy(國家經濟);economical → 精打細算、省錢',
+ quick:[['和國家、社會的「經濟」有關','economic'],['省錢、划算、不浪費','economical'],['經濟學(名詞)','economics']],
+ words:[
+  {w:'economic',pos:'adj.',zh:'經濟(上)的、經濟學的',forms:'n. economy(經濟)、economics(經濟學)、economist(經濟學家)',
+   core:'和經濟有關:成長、危機、政策、原因。通常放在名詞前面,不用來形容東西「省錢」。',
+   pats:['economic growth 經濟成長','an economic crisis 經濟危機','economic reasons 經濟上的原因','economic policy 經濟政策'],
+   ex:[['The government is trying to boost [[economic]] growth.','政府正努力刺激經濟成長。'],['Many young people moved to the city for [[economic]] reasons.','許多年輕人因為經濟因素搬到城市。']]},
+  {w:'economical',pos:'adj.',zh:'省錢的、划算的、節約的',forms:'adv. economically;v. economize(節省)',
+   core:'形容東西或做法「花費少、不浪費」,也可形容人節儉;be economical with… = 節省使用…。',
+   pats:['an economical car 省油的車','an economical way to V …的省錢方法','be economical with water 節約用水'],
+   ex:[['A small car is more [[economical]] because it uses less gas.','小車比較省錢,因為比較省油。'],['Buying vegetables at the local market is an [[economical]] way to shop.','在傳統市場買菜是省錢的購物方式。']]}
+ ],
+ traps:[
+  ['This car is very economic; it uses little gas.','This car is very [[economical]]; it uses little gas.','東西「省錢、省油」→ economical。'],
+  ['The country is facing an economical crisis.','The country is facing an [[economic]] crisis.','國家的「經濟」危機 → economic。'],
+  ['He studies economic at university.','He studies [[economics]] at university.','經濟學是 economics(當單數用)。']
+ ],
+ mcq:[
+  {q:'The government hopes to boost the country\'s ___ growth.',a:'economic',o:['economic','economical'],zh:'政府希望刺激國家的經濟成長。',why:'經濟成長 → economic growth。'},
+  {q:'A small car is more ___ because it uses less gas.',a:'economical',o:['economical','economic'],zh:'小車比較省錢,因為比較省油。',why:'省錢、省油 → economical。'},
+  {q:'Many young people moved to the city for ___ reasons.',a:'economic',o:['economical','economic'],zh:'許多年輕人因為經濟因素搬到城市。',why:'經濟上的原因 → economic reasons。'},
+  {q:'Buying vegetables at the local market is an ___ way to shop.',a:'economical',o:['economical','economic'],zh:'在傳統市場買菜是省錢的購物方式。',why:'省錢的方式 → an economical way。'},
+  {q:'The country is facing a serious ___ crisis.',a:'economic',o:['economical','economic'],zh:'這個國家正面臨嚴重的經濟危機。',why:'經濟危機 → economic crisis。',add:1},
+  {q:'Taking the MRT is more ___ than taking a taxi.',a:'economical',o:['economic','economical'],zh:'搭捷運比搭計程車省錢。',why:'比較省錢 → more economical。',add:1},
+  {q:'My sister wants to study ___ in college.',a:'economics',o:['economy','economic','economical','economics'],zh:'我姊姊想在大學念經濟學。',why:'經濟學 → economics。',add:1},
+  {q:'We should be ___ with water during the dry season.',a:'economical',o:['economical','economic'],zh:'乾季時我們應該節約用水。',why:'be economical with… = 節省使用…。',add:1}
+ ],
+ tr:[
+  {topic:'社會與政策',items:[
+   {zh:'許多年輕人因為經濟因素而延後結婚。',
+    en:['Many young people put off getting married for [[economic]] reasons.','Because of [[economic]] factors, many young people have delayed getting married.'],
+    keys:[['因為經濟因素','for economic reasons / because of economic factors'],['延後結婚','put off / delay getting married']]},
+   {zh:'政府推出新政策,希望能刺激經濟成長。',
+    en:['The government has introduced new policies in the hope of boosting [[economic]] growth.','The government launched a new policy, hoping to stimulate [[economic]] growth.'],
+    keys:[['推出新政策','introduce / launch a new policy'],['刺激經濟成長','boost / stimulate economic growth']]}
+  ]},
+  {topic:'生活與省錢',items:[
+   {zh:'搭捷運上學不但比搭計程車省錢,而且更環保。',
+    en:['Taking the MRT to school is not only more [[economical]] than taking a taxi but also more environmentally friendly.','Going to school by MRT is more [[economical]] than taking a taxi, and it is better for the environment as well.'],
+    keys:[['不但…而且…','not only… but also…'],['比較省錢','more economical'],['環保','environmentally friendly / better for the environment']]},
+   {zh:'在乾季,我們應該節約用水。',
+    en:['During the dry season, we should be [[economical]] with water.','We should use water [[economically]] during the dry season.'],
+    keys:[['節約用水','be economical with water / use water economically'],['在乾季','during the dry season']]}
+  ]}
+ ]},
+
+{id:'cfg63',name:'imaginary / imaginative',type:'拼字相近',
+ note:'imaginary = 想像出來的、不存在的;imaginative = 富有想像力的。',
+ tip:'imaginative 的 -ive 像 creative → 有創意、想像力豐富;imaginary → 只存在想像中',
+ quick:[['想像出來、實際上不存在的','imaginary'],['很有想像力、有創意(形容人或作品)','imaginative'],['想像力(名詞)','imagination']],
+ words:[
+  {w:'imaginary',pos:'adj.',zh:'想像中的、虛構的',forms:'v. imagine;n. imagination',
+   core:'形容「不存在、只在腦中」的東西:imaginary friend、imaginary line。',
+   pats:['an imaginary friend 假想朋友','an imaginary line 假想線','an imaginary world 虛構的世界'],
+   ex:[['The little boy has an [[imaginary]] friend named Bobo who lives under his bed.','小男孩有個叫 Bobo 的假想朋友,住在他的床底下。'],['The equator is an [[imaginary]] line around the earth.','赤道是環繞地球的一條假想線。']]},
+  {w:'imaginative',pos:'adj.',zh:'富有想像力的、有創意的',forms:'n. imagination;adv. imaginatively',
+   core:'形容人、作品或想法「很有想像力」,意思接近 creative。',
+   pats:['an imaginative writer 富想像力的作家','an imaginative story / design 有創意的故事/設計','imaginative ideas 有創意的點子'],
+   ex:[['The writer is so [[imaginative]] that she can create strange new worlds.','這位作家很有想像力,能創造出奇特的新世界。'],['Children who read a lot are often more [[imaginative]].','常閱讀的孩子通常比較有想像力。']]}
+ ],
+ traps:[
+  ['The writer is very imaginary.','The writer is very [[imaginative]].','形容人「很有想像力」→ imaginative。'],
+  ['Many kids have imaginative friends.','Many kids have [[imaginary]] friends.','「想像出來、不存在的」朋友 → imaginary。'],
+  ['He has a rich imagine.','He has a rich [[imagination]].','名詞是 imagination;imagine 是動詞。']
+ ],
+ mcq:[
+  {q:'The little boy has an ___ friend named Bobo who lives under his bed.',a:'imaginary',o:['imaginative','imaginary'],zh:'小男孩有個叫 Bobo 的假想朋友,住在他的床底下。',why:'不存在的朋友 → imaginary friend。'},
+  {q:'The writer is so ___ that she can create strange new worlds.',a:'imaginative',o:['imaginative','imaginary'],zh:'這位作家很有想像力,能創造出奇特的新世界。',why:'形容人很有想像力 → imaginative。'},
+  {q:'The equator is an ___ line around the earth.',a:'imaginary',o:['imaginary','imaginative'],zh:'赤道是環繞地球的一條假想線。',why:'假想線 → imaginary line。'},
+  {q:'Children who read a lot are often more ___.',a:'imaginative',o:['imaginary','imaginative'],zh:'常閱讀的孩子通常比較有想像力。',why:'有想像力 → imaginative。'},
+  {q:'The children came up with an ___ way to use the old boxes.',a:'imaginative',o:['imaginary','imaginative'],zh:'孩子們想出一個很有創意的方法來利用舊箱子。',why:'有創意的方法 → an imaginative way。',add:1},
+  {q:'The dragon in the story is an ___ animal.',a:'imaginary',o:['imaginative','imaginary'],zh:'故事裡的龍是一種虛構的動物。',why:'虛構、不存在 → imaginary。',add:1},
+  {q:'Reading novels can help develop your ___.',a:'imagination',o:['imagine','imaginary','imaginative','imagination'],zh:'讀小說能幫助培養你的想像力。',why:'your 後面要接名詞 → imagination。',add:1},
+  {q:'The architect is famous for her ___ designs.',a:'imaginative',o:['imaginative','imaginary'],zh:'這位建築師以富有創意的設計聞名。',why:'有創意的設計 → imaginative designs。',add:1}
+ ],
+ tr:[
+  {topic:'童年與閱讀',items:[
+   {zh:'很多小孩都有假想朋友,會跟他們說話、一起玩。',
+    en:['Many children have [[imaginary]] friends that they talk and play with.','It is common for children to have [[imaginary]] friends to talk and play with.'],
+    keys:[['假想朋友','imaginary friends'],['跟他們說話、一起玩','talk and play with them']]},
+   {zh:'多閱讀可以讓孩子變得更有想像力。',
+    en:['Reading more can make children more [[imaginative]].','Reading widely helps children develop their [[imagination]].'],
+    keys:[['讓孩子變得更…','make children more + adj.'],['想像力','imaginative(形容詞)/ imagination(名詞)']]}
+  ]},
+  {topic:'創作與地理',items:[
+   {zh:'這位作家非常有想像力,創造出許多奇特的世界。',
+    en:['The writer is so [[imaginative]] that she has created many strange worlds.','This highly [[imaginative]] author has created a number of unusual worlds.'],
+    keys:[['非常…以致於…','so + adj. + that…'],['創造出','create']]},
+   {zh:'赤道是一條環繞地球的假想線。',
+    en:['The equator is an [[imaginary]] line around the earth.','The equator is an [[imaginary]] line that circles the earth.'],
+    keys:[['假想線','an imaginary line'],['環繞地球','around the earth / that circles the earth']]}
+  ]}
+ ]},
+
+{id:'cfg41',name:'historic / historical',type:'拼字相近',
+ note:'historic = 在歷史上有重大意義的(a historic moment);historical = 與歷史有關的(a historical novel)。',
+ tip:'historic = 會「寫進歷史」的大事;historical = 「跟歷史有關」就算',
+ quick:[['重大、會被寫進歷史、有歷史意義的','historic'],['和歷史有關的、屬於過去的','historical']],
+ words:[
+  {w:'historic',pos:'adj.',zh:'歷史上有重大意義的、歷史性的',forms:'n. history;常用 a historic…',
+   core:'形容「很重要、會被歷史記住」的事件、時刻、地點。historic site = 古蹟。',
+   pats:['a historic moment 歷史性的一刻','a historic victory 歷史性的勝利','a historic site / building 古蹟/具歷史意義的建築','a historic decision 歷史性的決定'],
+   ex:[['The signing of the peace agreement was a [[historic]] moment for both countries.','簽署和平協議對兩國來說是歷史性的一刻。'],['Taiwan won a [[historic]] victory in the championship, the first in thirty years.','台灣在錦標賽中贏得歷史性的勝利,是三十年來第一次。']]},
+  {w:'historical',pos:'adj.',zh:'歷史(上)的、與歷史有關的',forms:'adv. historically',
+   core:'只表示「關於歷史、屬於過去」,不一定重要:historical novel、historical figure、historical records。',
+   pats:['a historical novel / film 歷史小說/電影','historical documents 歷史文件','a historical figure 歷史人物','historical background 歷史背景'],
+   ex:[['She enjoys reading [[historical]] novels about ancient China.','她喜歡讀關於古代中國的歷史小說。'],['The museum keeps many [[historical]] documents from the 18th century.','博物館保存了許多十八世紀的歷史文件。']]}
+ ],
+ traps:[
+  ['Winning the title after 30 years was a historical moment.','Winning the title after 30 years was a [[historic]] moment.','有重大歷史意義的一刻 → historic。'],
+  ['She likes reading historic novels.','She likes reading [[historical]] novels.','「以歷史為題材」的小說 → historical。'],
+  ['Confucius is a famous historic figure.','Confucius is a famous [[historical]] figure.','歷史人物 → historical figure。']
+ ],
+ mcq:[
+  {q:'The signing of the peace agreement was a ___ moment for both countries.',a:'historic',o:['historic','historical'],zh:'簽署和平協議對兩國來說是歷史性的一刻。',why:'具重大歷史意義 → historic。'},
+  {q:'She enjoys reading ___ novels about ancient China.',a:'historical',o:['historic','historical'],zh:'她喜歡讀關於古代中國的歷史小說。',why:'以歷史為題材的小說 → historical novels。'},
+  {q:'The museum keeps many ___ documents from the 18th century.',a:'historical',o:['historical','historic'],zh:'博物館保存了許多十八世紀的歷史文件。',why:'屬於過去的文件 → historical documents。'},
+  {q:'Taiwan won a ___ victory in the championship, the first in thirty years.',a:'historic',o:['historical','historic'],zh:'台灣在錦標賽中贏得歷史性的勝利,是三十年來第一次。',why:'歷史性的勝利 → a historic victory。'},
+  {q:'Tainan is full of ___ sites, such as Anping Fort.',a:'historic',o:['historic','historical'],zh:'台南有許多古蹟,例如安平古堡。',why:'古蹟 → historic sites。',add:1},
+  {q:'Confucius is one of the most important ___ figures in China.',a:'historical',o:['historic','historical'],zh:'孔子是中國最重要的歷史人物之一。',why:'歷史人物 → historical figure。',add:1},
+  {q:'The first moon landing in 1969 was a ___ event.',a:'historic',o:['historical','historic'],zh:'1969 年的首次登月是一件歷史性的大事。',why:'重大、被歷史記住 → historic。',add:1},
+  {q:'The film is based on ___ events of the Qing dynasty.',a:'historical',o:['historical','historic'],zh:'這部電影以清朝的史實為根據。',why:'過去真實發生的事 → historical events。',add:1}
+ ],
+ tr:[
+  {topic:'運動與時事',items:[
+   {zh:'睽違三十年再度奪冠,這是台灣隊歷史性的一刻。',
+    en:['Winning the championship again after thirty years was a [[historic]] moment for the Taiwanese team.','It was a [[historic]] moment for Team Taiwan when they won the title for the first time in thirty years.'],
+    keys:[['睽違三十年再度奪冠','win the championship again after thirty years'],['歷史性的一刻','a historic moment']]},
+   {zh:'兩國簽署和平協議,是一個具有歷史意義的決定。',
+    en:['The signing of the peace agreement between the two countries was a [[historic]] decision.','It was a [[historic]] decision for the two countries to sign the peace agreement.'],
+    keys:[['簽署和平協議','sign a peace agreement'],['具有歷史意義的','historic']]}
+  ]},
+  {topic:'閱讀與旅遊',items:[
+   {zh:'她喜歡閱讀以古代中國為背景的歷史小說。',
+    en:['She enjoys reading [[historical]] novels set in ancient China.','She likes to read [[historical]] fiction about ancient China.'],
+    keys:[['以…為背景的','set in…'],['歷史小說','historical novels / historical fiction']]},
+   {zh:'台南有許多古蹟,吸引大批觀光客前往參觀。',
+    en:['Tainan has many [[historic]] sites, which attract large numbers of tourists.','There are many [[historic]] sites in Tainan, attracting a lot of visitors every year.'],
+    keys:[['古蹟','historic sites'],['吸引大批觀光客','attract large numbers of tourists']]}
+  ]}
+ ]},
+
+{id:'cfg50',name:'sustain / maintain / retain / contain / obtain',type:'拼字相近',
+ note:'-tain(握住)家族,靠前綴分:sus-(從下撐住)= 維持、支撐,也指承受(傷害、損失);main-(用手握)= 維持、保養;re-(留住)= 保留;con-(包住)= 包含;ob-(取得)= 獲得。',
+ tip:'-tain = 握住:sus- 從下撐住、main- 用手顧著、re- 留住、con- 包在裡面、ob- 拿到手',
+ quick:[['從下撐住、長期維持;遭受(傷害、損失)','sustain'],['保持某種狀態;保養機器、房子','maintain'],['保住原本就有的、記住','retain'],['裡面裝有、含有','contain'],['(經過努力或程序)取得','obtain']],
+ words:[
+  {w:'sustain',pos:'vt.',zh:'維持、支撐;遭受(傷害、損失)',forms:'adj. sustainable(永續的);n. sustainability',
+   core:'「從下面撐住」:讓生命、發展長期持續;也指遭受傷害、損失(sustain injuries)。sustainable development = 永續發展。',
+   pats:['sustain life 維持生命','sustain injuries 受傷','sustain heavy losses 蒙受重大損失','sustainable development 永續發展'],
+   ex:[['The food we carried was not enough to [[sustain]] us for the whole trip.','我們帶的食物不夠撐完整趟旅程。'],['The driver was lucky to [[sustain]] only minor injuries in the crash.','那位駕駛很幸運,在車禍中只受了輕傷。']]},
+  {w:'maintain',pos:'vt.',zh:'維持、保持;保養;堅稱',forms:'n. maintenance(維修、保養)',
+   core:'讓某狀態「保持不變」(maintain a balance / good relations),或保養機器、房子;也有「堅稱」:maintain that…。',
+   pats:['maintain a healthy weight 維持健康體重','maintain good relations with… 與…保持良好關係','maintain a car 保養車子','maintain that… 堅稱…'],
+   ex:[['You need to [[maintain]] your car regularly to keep it in good condition.','你得定期保養車子,讓它保持良好狀況。'],['He [[maintained]] that he was innocent.','他堅稱自己是清白的。']]},
+  {w:'retain',pos:'vt.',zh:'保留、保住;記住',forms:'n. retention',
+   core:'「留住、不讓失去」原本就有的東西:retain a title、retain heat;retain information = 記住資訊。',
+   pats:['retain one\'s title 保住頭銜、衛冕','retain heat / water 保溫/保水','retain information 記住資訊','retain customers 留住顧客'],
+   ex:[['She managed to [[retain]] her title as the champion for the third year.','她成功衛冕,連續第三年保住冠軍頭銜。'],['This cup can [[retain]] heat for six hours.','這個杯子可以保溫六小時。']]},
+  {w:'contain',pos:'vt.',zh:'包含、裝有;控制、抑制',forms:'n. container(容器)、content(內容)',
+   core:'「裡面有」:contain + 成分或內容物,表狀態,不用進行式;也可指「控制住」情緒、疫情。',
+   pats:['contain sugar 含糖','contain up to 2 liters 最多可裝兩公升','contain one\'s anger 抑制怒氣','contain the spread of… 控制…的擴散'],
+   ex:[['This bottle can [[contain]] up to two liters of water.','這個瓶子最多可以裝兩公升的水。'],['Many soft drinks [[contain]] a lot of sugar.','許多汽水含有大量的糖。']]},
+  {w:'obtain',pos:'vt.',zh:'獲得、取得(較正式)',forms:'adj. obtainable',
+   core:'比 get 正式,指「經過努力或程序」拿到原本沒有的東西:obtain permission、obtain information、obtain a visa。',
+   pats:['obtain permission 取得許可','obtain information 取得資訊','obtain a visa / license 取得簽證/執照','obtain a degree 取得學位'],
+   ex:[['You must [[obtain]] permission from your parents before joining the trip.','參加旅行前,你必須先取得父母的同意。'],['Students can [[obtain]] more information from the school website.','學生可以從學校網站取得更多資訊。']]}
+ ],
+ traps:[
+  ['This drink is containing a lot of sugar.','This drink [[contains]] a lot of sugar.','contain 表狀態,不用進行式。'],
+  ['It is important to sustain your car regularly.','It is important to [[maintain]] your car regularly.','保養車子、機器 → maintain。'],
+  ['He obtained serious injuries in the accident.','He [[sustained]] serious injuries in the accident.','遭受傷害 → sustain injuries。'],
+  ['She retained a scholarship to study abroad.','She [[obtained]] a scholarship to study abroad.','「取得」原本沒有的東西 → obtain;retain 是保住原本就有的。']
+ ],
+ mcq:[
+  {q:'The food we carried was not enough to ___ us for the whole trip.',a:'sustain',o:['sustain','retain','obtain','maintain'],zh:'我們帶的食物不夠撐完整趟旅程。',why:'撐住、維持生命 → sustain。'},
+  {q:'You need to ___ your car regularly to keep it in good condition.',a:'maintain',o:['obtain','retain','maintain','sustain'],zh:'你得定期保養車子,讓它保持良好狀況。',why:'保養機器、車子 → maintain。'},
+  {q:'She managed to ___ her title as the champion for the third year.',a:'retain',o:['sustain','contain','retain','obtain'],zh:'她成功衛冕,連續第三年保住冠軍頭銜。',why:'保住原本就有的頭銜 → retain。'},
+  {q:'This bottle can ___ up to two liters of water.',a:'contain',o:['contain','sustain','obtain','retain'],zh:'這個瓶子最多可以裝兩公升的水。',why:'裡面裝有 → contain。'},
+  {q:'You must ___ permission from your parents before joining the trip.',a:'obtain',o:['obtain','retain','sustain','maintain'],zh:'參加旅行前,你必須先取得父母的同意。',why:'取得許可 → obtain permission。'},
+  {q:'The driver was lucky to ___ only minor injuries in the crash.',a:'sustain',o:['contain','retain','maintain','sustain'],zh:'那位駕駛很幸運,在車禍中只受了輕傷。',why:'遭受傷害 → sustain injuries。'},
+  {q:'It is important to ___ a balance between work and rest.',a:'maintain',o:['obtain','maintain','contain','retain'],zh:'在工作與休息之間保持平衡很重要。',why:'保持平衡 → maintain a balance。',add:1},
+  {q:'Older people often find it harder to ___ new information.',a:'retain',o:['retain','contain','sustain','obtain'],zh:'年長者常覺得比較難記住新資訊。',why:'記住資訊 → retain information。',add:1},
+  {q:'Be careful with that box. It ___ glass.',a:'contains',o:['retains','obtains','contains','sustains'],zh:'那個箱子小心一點,裡面裝的是玻璃。',why:'裡面裝有 → contain;表狀態用簡單式。',add:1},
+  {q:'Many countries are turning to ___ energy such as solar and wind power.',a:'sustainable',o:['obtainable','sustainable','maintenance','container'],zh:'許多國家正轉向太陽能、風力等永續能源。',why:'永續的 → sustainable。',add:1},
+  {q:'The police could not ___ enough evidence to arrest him.',a:'obtain',o:['obtain','retain','contain','sustain'],zh:'警方無法取得足夠的證據逮捕他。',why:'取得證據 → obtain evidence。',add:1}
+ ],
+ tr:[
+  {topic:'環境與健康',items:[
+   {zh:'為了達成永續發展,我們必須在經濟成長與環境保護之間取得平衡。',
+    en:['To achieve [[sustainable]] development, we must [[maintain]] a balance between economic growth and environmental protection.','In order to reach [[sustainable]] development, we have to strike a balance between economic growth and protecting the environment.'],
+    keys:[['永續發展','sustainable development'],['在…之間取得平衡','maintain / strike a balance between A and B']]},
+   {zh:'許多加工食品含有過多的糖和鹽,長期食用有害健康。',
+    en:['Many processed foods [[contain]] too much sugar and salt, which can harm our health in the long run.','Since a lot of processed food [[contains]] too much sugar and salt, eating it regularly is bad for our health.'],
+    keys:[['含有過多的…','contain too much…(不用進行式)'],['長期(來說)','in the long run']]}
+  ]},
+  {topic:'運動',items:[
+   {zh:'這位選手在比賽中受了輕傷,但仍成功衛冕冠軍。',
+    en:['The player [[sustained]] minor injuries during the competition but still [[retained]] her title as champion.','Although she [[sustained]] a minor injury in the game, the athlete managed to [[retain]] her championship title.'],
+    keys:[['受了輕傷','sustain minor injuries'],['衛冕冠軍','retain one\'s title (as champion)']]},
+   {zh:'規律運動能幫助我們維持健康的體重。',
+    en:['Regular exercise can help us [[maintain]] a healthy weight.','Exercising regularly helps us [[maintain]] a healthy body weight.'],
+    keys:[['規律運動','regular exercise / exercise regularly'],['維持健康的體重','maintain a healthy weight']]}
+  ]},
+  {topic:'學習與手續',items:[
+   {zh:'出國留學之前,你必須先取得簽證。',
+    en:['Before studying abroad, you must [[obtain]] a visa first.','You have to [[obtain]] a visa before you go abroad to study.'],
+    keys:[['出國留學','study abroad / go abroad to study'],['取得簽證','obtain a visa']]},
+   {zh:'研究顯示,用手寫筆記的學生比較能記住上課的內容。',
+    en:['Studies show that students who take notes by hand are better able to [[retain]] what they learn in class.','Research has shown that students who write their notes by hand [[retain]] class content better.'],
+    keys:[['研究顯示','studies / research show(s) that…'],['記住上課的內容','retain what they learn in class']]}
+  ]}
+ ]},
+
+{id:'cfg71',name:'perceive / conceive / deceive / receive',type:'拼字相近',
+ note:'都拼成 -ceive(i before e, except after c:c 後面寫 ei)。perceive = 察覺、認為;conceive = 構想、懷孕;deceive = 欺騙;receive = 收到。',
+ tip:'-ceive = 拿、抓:per- 透過感官抓到 → 察覺;con- 在腦中聚成形 → 構想;de- 把人帶離真相 → 欺騙;re- 拿回來 → 收到',
+ quick:[['透過感官或心裡察覺;把…看作(perceive A as B)','perceive'],['在腦中構想、想像(常用 can\'t conceive of)','conceive'],['欺騙、蒙蔽','deceive'],['收到、接到;受到(待遇)','receive']],
+ words:[
+  {w:'perceive',pos:'vt.',zh:'察覺、感知;認為、看待',forms:'n. perception(感知、看法);adj. perceptive(敏銳的)',
+   core:'透過感官或心智察覺:perceive a change;也可表示「把…看作」:perceive A as B,常用被動 be perceived as。',
+   pats:['perceive a change 察覺到變化','perceive A as B 把 A 看作 B','be perceived as… 被視為…','public perception 大眾觀感'],
+   ex:[['Many people [[perceive]] the color red as a sign of danger.','許多人把紅色視為危險的訊號。'],['Dogs can [[perceive]] sounds that humans cannot hear.','狗能察覺到人類聽不到的聲音。']]},
+  {w:'conceive',pos:'vt. / vi.',zh:'構想、想像;懷孕',forms:'n. concept(概念)、conception(構想;受孕);adj. inconceivable(難以想像的)',
+   core:'在腦中「形成」想法:conceive a plan / an idea;conceive of… = 想像(常用否定 can\'t conceive of)。另有「懷孕」之意。',
+   pats:['conceive a plan / an idea 構想出計畫/點子','can\'t conceive of… 無法想像…','It is inconceivable that… …是難以想像的'],
+   ex:[['It is hard to [[conceive]] how big the universe is.','很難想像宇宙有多大。'],['The idea for the app was [[conceived]] by two high school students.','這個 App 的點子是由兩名高中生構想出來的。']]},
+  {w:'deceive',pos:'vt.',zh:'欺騙、蒙蔽',forms:'n. deception、deceit;adj. deceptive(騙人的、誤導的)',
+   core:'deceive sb. (into V-ing) = 騙某人(去做…);deceive oneself = 自欺。Appearances can be deceptive. = 人不可貌相。',
+   pats:['deceive sb. into V-ing 騙某人去…','deceive oneself 自欺','be deceived by… 被…欺騙','deceptive advertising 誤導的廣告'],
+   ex:[['Don\'t try to [[deceive]] me; I already know the truth.','別想騙我,我已經知道真相了。'],['The old man was [[deceived]] into giving away his savings.','那位老先生被騙交出了積蓄。']]},
+  {w:'receive',pos:'vt.',zh:'收到、接到;受到(待遇)',forms:'n. receipt(收據)、reception(接待、歡迎會)、receiver',
+   core:'receive A from B = 從 B 收到 A;也指受到某種反應或待遇:receive a warm welcome。receive 只是「收到」,不等於「接受」(accept)。',
+   pats:['receive a letter / package 收到信/包裹','receive a warm welcome 受到熱烈歡迎','receive an award 獲獎','receive treatment 接受治療'],
+   ex:[['You will [[receive]] the package within three days.','你會在三天內收到包裹。'],['The singer [[received]] a warm welcome from her fans.','這位歌手受到歌迷熱烈歡迎。']]}
+ ],
+ traps:[
+  ['I recieved your email yesterday.','I [[received]] your email yesterday.','拼字:c 後面是 ei(-ceive)。'],
+  ['The ad deceived me to buy a useless product.','The ad [[deceived]] me into buying a useless product.','deceive sb. into V-ing,不是 to V。'],
+  ['I can\'t perceive of living without my phone.','I can\'t [[conceive]] of living without my phone.','「無法想像」→ can\'t conceive of…。'],
+  ['She is received as a kind person.','She is [[perceived]] as a kind person.','「被看作…」→ be perceived as…。']
+ ],
+ mcq:[
+  {q:'Many people ___ the color red as a sign of danger.',a:'perceive',o:['deceive','conceive','perceive','receive'],zh:'許多人把紅色視為危險的訊號。',why:'把 A 看作 B → perceive A as B。'},
+  {q:'It is hard to ___ how big the universe is.',a:'conceive',o:['conceive','perceive','receive','deceive'],zh:'很難想像宇宙有多大。',why:'在腦中想像 → conceive。'},
+  {q:'Don\'t try to ___ me; I already know the truth.',a:'deceive',o:['receive','perceive','conceive','deceive'],zh:'別想騙我,我已經知道真相了。',why:'欺騙 → deceive。'},
+  {q:'You will ___ the package within three days.',a:'receive',o:['deceive','receive','perceive','conceive'],zh:'你會在三天內收到包裹。',why:'收到 → receive。'},
+  {q:'The singer ___ a warm welcome when she arrived at the airport.',a:'received',o:['perceived','received','conceived','deceived'],zh:'這位歌手抵達機場時受到熱烈歡迎。',why:'受到歡迎 → receive a warm welcome。',add:1},
+  {q:'The old man was ___ into paying for a fake ticket.',a:'deceived',o:['deceived','conceived','perceived','received'],zh:'那位老先生被騙去買了一張假票。',why:'be deceived into V-ing = 被騙去做…。',add:1},
+  {q:'The plan was first ___ by a group of high school students.',a:'conceived',o:['received','deceived','conceived','perceived'],zh:'這個計畫最早是由一群高中生構想出來的。',why:'構想出計畫 → conceive a plan。',add:1},
+  {q:'Students who are ___ as lazy may simply be tired.',a:'perceived',o:['received','perceived','deceived','conceived'],zh:'被看作懶惰的學生,可能只是累了。',why:'be perceived as… = 被看作…。',add:1},
+  {q:'Don\'t let appearances ___ you.',a:'deceive',o:['perceive','receive','deceive','conceive'],zh:'別被外表騙了。',why:'外表欺騙人 → deceive。',add:1}
+ ],
+ tr:[
+  {topic:'詐騙與安全',items:[
+   {zh:'詐騙集團常利用網路欺騙老人交出積蓄。',
+    en:['Scam groups often use the Internet to [[deceive]] elderly people into handing over their savings.','Fraud rings often [[deceive]] old people online and trick them into giving up their savings.'],
+    keys:[['詐騙集團','scam groups / fraud rings'],['騙某人去做…','deceive sb. into V-ing'],['交出積蓄','hand over one\'s savings']]},
+   {zh:'如果你收到可疑的簡訊,千萬不要點開裡面的連結。',
+    en:['If you [[receive]] a suspicious text message, never click on the link in it.','Never open the link if you [[receive]] a text message that seems suspicious.'],
+    keys:[['收到可疑的簡訊','receive a suspicious text message'],['千萬不要…','never + V / be sure not to V']]}
+  ]},
+  {topic:'觀感與想像',items:[
+   {zh:'在許多文化中,紅色被視為好運的象徵。',
+    en:['In many cultures, the color red is [[perceived]] as a symbol of good luck.','Many cultures [[perceive]] red as a sign of good fortune.'],
+    keys:[['被視為…','be perceived as…'],['好運的象徵','a symbol of good luck']]},
+   {zh:'很難想像如果沒有手機,現代人的生活會變成什麼樣子。',
+    en:['It is hard to [[conceive]] of what modern life would be like without cell phones.','People today can hardly [[conceive]] of living without their smartphones.'],
+    keys:[['很難想像','it is hard to conceive of… / can hardly conceive of…'],['…會變成什麼樣子','what… would be like(假設語氣)']]}
+  ]},
+  {topic:'創作與成果',items:[
+   {zh:'這部電影上映後,受到觀眾熱烈的歡迎。',
+    en:['The movie [[received]] an enthusiastic response from audiences after its release.','After it came out, the film [[received]] a warm welcome from moviegoers.'],
+    keys:[['受到熱烈歡迎','receive a warm welcome / an enthusiastic response'],['上映','release / come out']]},
+   {zh:'這個點子最早是由兩位高中生構想出來的。',
+    en:['The idea was first [[conceived]] by two high school students.','Two high school students were the first to [[conceive]] the idea.'],
+    keys:[['構想出(點子)','conceive an idea'],['最早是由…','was first conceived by… / were the first to V']]}
+  ]}
  ]}
 
 ];
