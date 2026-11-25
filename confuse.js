@@ -367,6 +367,84 @@ const CF=[
     en:['This hotel [[treats]] every guest like a VIP, so it is [[regarded]] as one of the best hotels in the city.','Because it [[treats]] all its guests as VIPs, the hotel is [[considered]] one of the best in the city.'],
     keys:[['把…當作貴賓接待','treat… like / as a VIP'],['被視為…之一','be regarded as one of… / be considered (to be) one of…']]}
   ]}
+ ]},
+
+{id:'cfg72',name:'precede / proceed / process / progress',type:'拼字相近',
+ note:'precede = 在…之前(pre- 之前);proceed = 繼續進行、前往(proceed to / with);process = 過程;處理、加工;progress = 進步、進展(不可數)。',
+ tip:'pre- 之前 → precede;pro- 向前 → proceed、progress;拼字:proceed 是 -ceed(雙 e),precede 是 -cede(單 e)',
+ quick:[['在…之前(時間、順序)','precede'],['繼續進行(with)、前往(to)','proceed'],['一連串步驟的過程;處理資料、加工食物','process'],['進步、進展(不可數);進行中 in progress','progress']],
+ words:[
+  {w:'precede',pos:'vt.',zh:'在…之前、先於',forms:'precede – preceded – preceded;adj. preceding;n. precedent(先例)',
+   core:'及物動詞,直接接受詞:A precede B = A 在 B 之前。被動 B is preceded by A。pre- = 之前。',
+   pats:['A precede B A 在 B 之前','be preceded by… 之前先有…','the preceding day / chapter 前一天/前一章','unprecedented 前所未有的'],
+   ex:[['A short speech will [[precede]] the dinner.','晚餐之前會先有一段簡短的致詞。'],['The storm was [[preceded]] by strong winds.','暴風雨來臨之前先颳起了強風。']]},
+  {w:'proceed',pos:'vi.',zh:'繼續進行、(接著)前往',forms:'proceed – proceeded – proceeded;n. procedure(程序)、proceeds(收益)',
+   core:'不及物動詞,不直接接受詞:proceed with + 事情(繼續進行)、proceed to + 地點(前往)、proceed to V(接著做)。拼字是 -ceed,兩個 e。',
+   pats:['proceed with the plan 繼續進行計畫','proceed to Gate 5 前往 5 號登機門','proceed to V 接著做…','proceed as planned 照計畫進行'],
+   ex:[['After a short rest, we will [[proceed]] to the top of the mountain.','休息一下之後,我們會繼續往山頂前進。'],['Despite the rain, they decided to [[proceed]] with the game.','儘管下雨,他們仍決定繼續比賽。']]},
+  {w:'process',pos:'n. / vt.',zh:'過程、流程;處理、加工',forms:'n. process(可數);vt. process – processed;n. procession(隊伍)',
+   core:'名詞指「一連串步驟的過程」(a process);動詞是「處理資料、申請」或「加工食物」。',
+   pats:['a long process 漫長的過程','in the process of V-ing 在…的過程中','process data / information 處理資料/資訊','process an application 處理申請','processed food 加工食品'],
+   ex:[['Learning a language is a long [[process]].','學習一種語言是一段漫長的過程。'],['The factory will [[process]] the milk into cheese.','工廠會把牛奶加工製成起司。']]},
+  {w:'progress',pos:'n. / vi.',zh:'進步、進展;前進',forms:'n. progress(不可數);vi. progress – progressed;adj. progressive',
+   core:'名詞不可數,不加 a、不加 s:make progress。in progress = 進行中。動詞(重音在後)= 進展、進步。',
+   pats:['make (great) progress in… 在…方面(大有)進步','in progress 進行中','the progress of technology 科技的進步','as time progressed 隨著時間推移'],
+   ex:[['Amy has made great [[progress]] in her English this year.','艾咪今年英文大有進步。'],['The meeting is still in [[progress]].','會議還在進行中。']]}
+ ],
+ traps:[
+  ['He has made a great progress in math.','He has made great [[progress]] in math.','progress 不可數,不加 a、不加 s。'],
+  ['Let\'s proceed the discussion.','Let\'s [[proceed]] with the discussion.','proceed 不接受詞,繼續進行某事要用 proceed with。'],
+  ['Lightning always proceeds thunder.','Lightning always [[precedes]] thunder.','「在…之前」→ precede(pre- 之前);proceed 是繼續、前往。'],
+  ['We will procede with the plan.','We will [[proceed]] with the plan.','拼字:proceed 是 -ceed(雙 e);precede 才是 -cede。'],
+  ['She is in the progress of moving to Tainan.','She is in the [[process]] of moving to Tainan.','「在…的過程中」→ in the process of + V-ing;in progress 是「進行中」。']
+ ],
+ mcq:[
+  {q:'A short speech will ___ the dinner.',a:'precede',o:['proceed','precede','process','progress'],zh:'晚餐之前會先有一段簡短的致詞。',why:'在…之前 → precede + 受詞;will 後面用原形。'},
+  {q:'After a short rest, we will ___ to the top of the mountain.',a:'proceed',o:['precede','proceed','process','progress'],zh:'休息一下之後,我們會繼續往山頂前進。',why:'繼續前往 → proceed to + 地點。'},
+  {q:'The factory will ___ the milk into cheese.',a:'process',o:['process','precede','proceed','progress'],zh:'工廠會把牛奶加工製成起司。',why:'加工 → process A into B。'},
+  {q:'Learning a language is a long ___.',a:'process',o:['proceed','precede','process','progress'],zh:'學習一種語言是一段漫長的過程。',why:'a long process = 漫長的過程;progress 不可數,前面不加 a。'},
+  {q:'Thanks to her hard work, Amy has made great ___ in English.',a:'progress',o:['process','progress','proceed','precede'],zh:'因為努力,艾咪的英文大有進步。',why:'make progress = 進步;progress 不可數。',add:1},
+  {q:'Passengers for Flight 101, please ___ to Gate 5.',a:'proceed',o:['precede','process','proceed','progress'],zh:'搭乘 101 班機的旅客,請前往 5 號登機門。',why:'前往 → proceed to + 地點。',add:1},
+  {q:'Lightning always ___ thunder.',a:'precedes',o:['proceeds','precedes','processes','progresses'],zh:'閃電總是出現在雷聲之前。',why:'在…之前 → precede;主詞第三人稱單數加 s。',add:1},
+  {q:'Doctors say we should eat less ___ food.',a:'processed',o:['proceeded','preceded','processed','progressed'],zh:'醫生說我們應該少吃加工食品。',why:'processed food = 加工食品。',add:1},
+  {q:'We are still in the ___ of choosing a new school.',a:'process',o:['progress','process','procedure','proceeds'],zh:'我們還在挑選新學校的過程中。',why:'in the process of + V-ing = 在…的過程中。',add:1},
+  {q:'The meeting is in ___; please wait outside.',a:'progress',o:['process','progress','proceed','precede'],zh:'會議正在進行中,請在外面等候。',why:'in progress = 進行中。',add:1},
+  {q:'Despite the heavy rain, the workers ___ with the construction.',a:'proceeded',o:['preceded','processed','proceeded','progressed'],zh:'儘管下大雨,工人們仍繼續施工。',why:'繼續進行某事 → proceed with + N;過去式 proceeded。',add:1},
+  {q:'In the ___ chapter, the writer explains why the war began.',a:'preceding',o:['proceeding','preceding','processing','progressing'],zh:'在前一章裡,作者說明了戰爭爆發的原因。',why:'preceding = 前面的、先前的。',add:1}
+ ],
+ tr:[
+  {topic:'學習與進步',items:[
+   {zh:'只要持之以恆,你的英文一定會有很大的進步。',
+    en:['As long as you keep at it, you will surely make great [[progress]] in English.','If you persevere, your English will definitely [[progress]] a lot.','As long as you keep practicing, you will certainly make a lot of [[progress]] in your English.'],
+    keys:[['只要…','as long as… / if…'],['持之以恆','keep at it / persevere / keep practicing'],['有很大的進步','make great progress(不可數,不加 a)']]},
+   {zh:'學習一種語言是一段漫長的過程,需要耐心與毅力。',
+    en:['Learning a language is a long [[process]] that requires patience and perseverance.','Learning a language is a long [[process]], which takes patience and determination.'],
+    keys:[['一段漫長的過程','a long process'],['需要耐心與毅力','require / take patience and perseverance']]}
+  ]},
+  {topic:'旅行與活動',items:[
+   {zh:'請所有旅客立即前往三號登機門登機。',
+    en:['All passengers are requested to [[proceed]] to Gate 3 immediately for boarding.','All passengers, please [[proceed]] to Gate 3 for boarding right away.'],
+    keys:[['前往三號登機門','proceed to Gate 3'],['立即','immediately / right away']]},
+   {zh:'雖然下著大雨,馬拉松比賽仍照原定計畫進行。',
+    en:['Although it was raining heavily, the marathon [[proceeded]] as planned.','Despite the heavy rain, the organizers [[proceeded]] with the marathon as scheduled.'],
+    keys:[['雖然下著大雨','although it was raining heavily / despite the heavy rain'],['照原定計畫進行','proceed as planned / proceed with… as scheduled']]}
+  ]},
+  {topic:'飲食與典禮',items:[
+   {zh:'醫生建議我們少吃加工食品,多吃新鮮蔬果。',
+    en:['Doctors suggest that we (should) eat less [[processed]] food and more fresh fruits and vegetables.','The doctor advised us to cut down on [[processed]] food and eat more fresh fruit and vegetables.'],
+    keys:[['建議我們…','suggest that we (should) + 原形 / advise us to V'],['加工食品','processed food']]},
+   {zh:'正式比賽開始之前,通常會先有一段簡短的開幕典禮。',
+    en:['The official competition is usually [[preceded]] by a short opening ceremony.','A brief opening ceremony usually [[precedes]] the official competition.'],
+    keys:[['在…之前','A precedes B / B is preceded by A'],['開幕典禮','opening ceremony']]}
+  ]},
+  {topic:'科技與建設',items:[
+   {zh:'隨著科技的進步,電腦能在幾秒內處理大量的資料。',
+    en:['With the [[progress]] of technology, computers can [[process]] a large amount of data in seconds.','As technology [[progresses]], computers are able to [[process]] huge amounts of data within a few seconds.'],
+    keys:[['隨著科技的進步','with the progress of technology / as technology progresses'],['處理大量的資料','process a large amount of data']]},
+   {zh:'新捷運線的工程正在進行中,預計明年完工。',
+    en:['Construction of the new MRT line is in [[progress]] and is expected to be completed next year.','The city is in the [[process]] of building a new MRT line, which is expected to be finished next year.'],
+    keys:[['正在進行中','be in progress / be in the process of + V-ing'],['預計明年完工','be expected to be completed next year']]}
+  ]}
  ]}
 
 ];
