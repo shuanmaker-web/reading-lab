@@ -235,6 +235,7 @@ body{height:100dvh;touch-action:manipulation}
 .prbar button.pri{background:#111;color:var(--y)}
 .toast{position:fixed;left:50%;bottom:28px;transform:translateX(-50%);background:#111;color:var(--y);padding:10px 22px;border-radius:999px;font-weight:700;z-index:99;opacity:0;transition:opacity .2s;pointer-events:none}
 .toast.on{opacity:1}
+.updbar{position:fixed;left:50%;top:14px;transform:translateX(-50%);z-index:100;background:#111;color:var(--y);border:0;padding:10px 22px;border-radius:999px;font-weight:700;font-size:16px;box-shadow:0 4px 14px rgba(0,0,0,.25);cursor:pointer}
 @media (max-width:800px){.prbar{padding-left:14px;padding-right:14px}}
 .segbar,.skills .segtools{display:flex;gap:8px;align-items:center}
 .segbar{padding:6px 28px 14px}.segbar .sp{flex:1}
@@ -1015,7 +1016,18 @@ function closeMenu(){$('#menu').classList.remove('open')}
 document.addEventListener('click',e=>{if(!e.target.closest('.menuwrap'))closeMenu()});
 document.addEventListener('keydown',e=>{if(e.key==='Escape'){if(act)setAct(act);closeM()}});
 $('#modal').addEventListener('click',e=>{if(e.target.id==='modal')closeM()});
-if('serviceWorker' in navigator&&location.protocol.startsWith('http'))navigator.serviceWorker.register('sw.js').catch(()=>{});
+if('serviceWorker' in navigator&&location.protocol.startsWith('http')){
+  const hadSW=!!navigator.serviceWorker.controller;let swReload=false;
+  navigator.serviceWorker.register('sw.js',{updateViaCache:'none'}).then(reg=>{
+    const chk=()=>reg.update().catch(()=>{});
+    document.addEventListener('visibilitychange',()=>{if(document.visibilityState==='visible')chk()});
+    setInterval(chk,30*60*1000);
+  }).catch(()=>{});
+  navigator.serviceWorker.addEventListener('controllerchange',()=>{
+    if(!hadSW||swReload)return;swReload=true;
+    const b=document.createElement('button');b.className='updbar';b.textContent='App 有新版本,點這裡更新';b.onclick=()=>location.reload();document.body.appendChild(b);
+  });
+}
 const _fx=fixOpts();if(_fx)sv(K.d,data);if(pruneSeeds()){sv(K.d,data);saveAnn();sv(K.r,resp);sv(K.p,prac)}
 renderLib();loadRefs(false);
 </script>
